@@ -18,14 +18,14 @@
                     <div class="carousel-inner">
                         @if (count($images) ==1)
                             @foreach ($images as $image)
-                                <div class="carousel-item active"><img class="w-100 d-block" src="{{ asset($image['url']) }}" alt="Slide Image"></div>
+                                <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="Slide Image"></div>
                             @endforeach
                         @else
                             @for ($i = 1; $i < count($images)+1; $i++)
                                 @if ($i == 1)
-                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ asset($images[$i]->url) }}" alt="Slide Image"></div>
+                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="Slide Image"></div>
                                 @else
-                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ asset($images[$i]->url) }}" alt="Slide Image"></div>
+                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="Slide Image"></div>
                                 @endif
                             @endfor
                         @endif
