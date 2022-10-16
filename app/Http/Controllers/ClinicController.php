@@ -82,7 +82,7 @@ class ClinicController extends Controller
 
                 $clinic_image->name = $clinic_image_name;
 
-                $clinic_image->url = '/storage/'.$clinic_image_file;
+                $clinic_image->url = $clinic_image_file;
 
                 $clinic_image->save();
             }
