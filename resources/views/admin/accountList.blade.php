@@ -30,8 +30,8 @@
                 @foreach ($staffs as $staff)
                 <tr>
                     <td>Staff Image</td>
-                    <td>{{ $staff->email }}</td>
                     <td>{{ $staff->name }}</td>
+                    <td>{{ $staff->email }}</td>
                     <td>Staff Address</td>
                     <td>Staff Operation Time</td>
                     <td>Staff Telephone No.</td>

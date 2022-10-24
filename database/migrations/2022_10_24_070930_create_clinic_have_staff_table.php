@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('clinic_have_staff', function (Blueprint $table) {
             $table->id();
             $table->integer('staff_id');
-            $table->integer('clinic_id')->nullable();
+            $table->integer('clinic_id');
             $table->integer('is_deleted')->nullable();
             $table->timestamps();
         });

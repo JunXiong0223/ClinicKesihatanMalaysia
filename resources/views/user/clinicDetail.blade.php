@@ -23,9 +23,9 @@
                         @else
                             @for ($i = 1; $i < count($images)+1; $i++)
                                 @if ($i == 1)
-                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $image['name'] }}"></div>
+                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $images[$i]->name }}"></div>
                                 @else
-                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $image['name'] }}"></div>
+                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $images[$i]->name }}"></div>
                                 @endif
                             @endfor
                         @endif
