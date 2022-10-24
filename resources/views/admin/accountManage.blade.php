@@ -59,6 +59,18 @@
                        {{$message}}
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffTelNo">Clinic Assigned</label>
+                    <select class="form-control" name="clinic_id" id="clinic_id" required>
+                        <option value="" selected disabled hidden>Select a Clinic</option>
+                        @foreach ($clinics as $clinic)
+                            <option value="{{ $clinic['id'] }}">{{ $clinic['name'] }}</option>
+                        @endforeach
+                    </select>
+                    @error('clinic_id')
+                       {{$message}}
+                    @enderror
+                </div>
                 <div class="form-group d-flex d-xl-flex justify-content-sm-center align-items-sm-center justify-content-xl-center">
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
                         <button class="btn btn-danger flex-fill" type="button">Reset</button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Staff;
+use App\Models\Clinic;
 use App\Models\Appointment;
 use App\Models\ClinicHaveStaff;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class StaffController extends Controller
 {
     public function index()
     {
-        return view('admin.accountManage');
+        return view('admin.accountManage', ['clinics' => Clinic::all()]);
     }
 
     public function store(Request $req)
@@ -46,6 +47,7 @@ class StaffController extends Controller
 
         $clinic_staff = new ClinicHaveStaff();
         $clinic_staff->staff_id = $staff_id;
+        $clinic_staff->clinic_id = $req->input('clinic_id');
         $clinic_staff->save();
 
         return redirect()->route('admin.staffList');
@@ -53,7 +55,13 @@ class StaffController extends Controller
 
     public function staffList()
     {
-        return view('admin.accountList', ['staffs' => Staff::all()]);
+        $staffs = DB::table('clinic_have_staff')
+                -> join('staff', 'clinic_have_staff.staff_id', 'staff.id')
+                -> join('clinics', 'clinic_have_staff.clinic_id', 'clinics.id')
+                -> select('clinics.name as clinic_name', 'staff.*')
+                -> get();
+
+        return view('admin.accountList', ['staffs' => $staffs]);
     }
 
     public function schedule()
