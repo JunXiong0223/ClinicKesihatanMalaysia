@@ -72,9 +72,15 @@ class AppointmentController extends Controller
                     -> where('clinic_id', $req-> input('clinic_id'))
                     -> pluck('staff_id')
                     -> toArray();
+
             $staff = array_diff($staffs, $checks);
             
-            $selected_staff = $staff[1];
+            reset($staff);
+            $key = key($staff);
+            //dd($key);
+
+            $selected_staff = $staff[$key];
+
         }
 
         //dd($selected_staff);
@@ -87,7 +93,7 @@ class AppointmentController extends Controller
 
         $appointment-> is_deleted = 0;
 
-        //$appointment->save();
+        $appointment->save();
 
         return redirect()->back()->with('success', 'Your appointment is successful been make');
     }
