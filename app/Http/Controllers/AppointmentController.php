@@ -47,6 +47,11 @@ class AppointmentController extends Controller
 
         $appointment-> attend_time = $req-> input('appointment_time');
 
+        //Check clinic seleceted for doctor to serve
+        $staff = DB::table('clinic')
+                -> join('staff', 'clinic.id', '=', 'staff.');
+                
+
         $appointment-> staff_id = 0;
 
         $appointment-> attendance = false;

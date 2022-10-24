@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Staff;
 use App\Models\Appointment;
+use App\Models\ClinicHaveStaff;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,22 @@ class StaffController extends Controller
 
         $staff->save();
 
+        $staff->refresh();
+
+        $staff_id = DB::table('staff')
+                    -> where('email', $req->input('staffEmail'))
+                    -> select('id')
+                    -> get(1);
+        
+        foreach($staff_id as $x)
+        {
+            $staff_id = $x->id;
+        }
+
+        $clinic_staff = new ClinicHaveStaff();
+        $clinic_staff->staff_id = $staff_id;
+        $clinic_staff->save();
+
         return redirect()->route('admin.staffList');
     }
 
@@ -51,13 +68,30 @@ class StaffController extends Controller
                         -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
                         -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
                         -> where('appointments.staff_id', Auth::guard('staff')->user()->id)
-                        -> select('appointments.*', 'users.name as user_name', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
+                        -> select('appointments.*', 'users.name as user_name', 'users.id as user_id', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
                         -> orderByRaw('appointments.attend_date ASC')
                         -> get();
 
         return view('staff.appointmentManage', [
             'appointments' => $appointments,
         ]);
+    }
+
+    public function update(Request $req)
+    {
+        $appointment = Appointment::findOrFail($req->input('appointment_id'));
+
+        if ($req->input('attend') != null) {
+            $appointment->attendance = $req->input('attend');
+        }
+        
+        if ($req->input('status') != null) {
+            $appointment->status = $req->input('status');
+        }
+        
+        $appointment->save();
+
+        return redirect()->back();
     }
 
 }

@@ -126,6 +126,8 @@ Route::get('staff/logout', [StaffAuthController::class, 'logout'])
     ->name('staff.logout');
 Route::get('staff/schedule', [StaffController::class, 'schedule'])
     ->name('staff.schedule');
+Route::post('staff/schedule', [StaffController::class, 'update'])
+    ->name('staff.update');
 
 //Appointment
 Route::post('appointment/', [AppointmentController::class, 'store'])

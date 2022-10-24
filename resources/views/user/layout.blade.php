@@ -168,7 +168,7 @@
     </div>
     <script src="{{url('assetsUser/bootstrap/js/bootstrap.min.js')}}"></script> 
     <script src="{{url('assetsUser/js/Sidebar-Menu.js')}}"></script>
-
+    
     @yield('js')
 
 </body>
