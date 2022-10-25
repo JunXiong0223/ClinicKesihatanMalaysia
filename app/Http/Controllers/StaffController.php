@@ -115,20 +115,12 @@ class StaffController extends Controller
                         -> where('staff_id', '=', $req->input('staff_id'))
                         -> update(['clinic_id' => $req->input('ClinicUpdate')]);
 
-        //dd($clinic_staff);
-
         // Check input valid
         if($req->input('NameUpdate') != null)
         {
             $staff->name = $req->input('NameUpdate');
         }
         
-        //$staff->name = $req->input('NameUpdate');
-
-        //$clinic_staff->clinic_id = $req->input('ClinicUpdate');
-
-        //dd($staff->clinic_id);
-
         $staff->save();
 
         return redirect()->back();
