@@ -79,16 +79,6 @@ class StaffController extends Controller
                         -> select('appointments.*', 'users.name as user_name', 'users.id as user_id', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
                         -> orderByRaw('appointments.attend_date ASC')
                         -> get();
-
-        // $appointments = DB::table('appointments')
-        //                 -> join('users', 'appointments.staff_id', '=', 'users.id')
-        //                 -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
-        //                 -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
-        //                 -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
-        //                 -> where('appointments.staff_id', '=' ,Auth::guard('staff')->user()->id)
-        //                 -> select('appointments.*', 'users.name as user_name', 'users.id as user_id', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
-        //                 -> orderByRaw('appointments.attend_date ASC')
-        //                 -> get();
         
         //dd($appointments);
 

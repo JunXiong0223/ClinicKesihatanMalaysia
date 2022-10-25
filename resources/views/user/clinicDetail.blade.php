@@ -21,13 +21,19 @@
                                 <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}"></div>
                             @endforeach
                         @else
-                            @for ($i = 1; $i < count($images)+1; $i++)
-                                @if ($i == 1)
-                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $images[$i]->name }}"></div>
+                            @php
+                                $count = true;
+                            @endphp
+                            @foreach ($images as $image)
+                                @if ($count == true)
+                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}"></div>
+                                    @php
+                                        $count = false;
+                                    @endphp
                                 @else
-                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$i]->url) }}" alt="{{ $images[$i]->name }}"></div>
+                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}"></div>
                                 @endif
-                            @endfor
+                            @endforeach
                         @endif
 
                     </div>
