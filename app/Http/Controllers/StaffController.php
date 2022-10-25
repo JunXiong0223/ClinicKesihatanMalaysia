@@ -122,8 +122,12 @@ class StaffController extends Controller
         }
         
         $staff->save();
+        if($staff->save() && $clinic_staff == 1)
+        {
+            return redirect()->back();
+        }
 
-        return redirect()->back();
+        return abort(404);
     }
 
 }
