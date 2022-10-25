@@ -113,6 +113,8 @@ Route::post('admin/timeSlotCreate',[TimeSlotController::class, 'store'])
     ->name('admin.timeSlotCreate');
 Route::get('admin/appointment', [AppointmentController::class, 'index'])
     ->name('admin.appointment');
+Route::post('admin/staffUpdate',[StaffController::class, 'staffUpdate'])
+    ->name('admin.staffUpdate');
 
 //staff
 Route::get('staff/', [StaffAuthController::class, 'index'])

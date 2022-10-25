@@ -61,7 +61,10 @@ class StaffController extends Controller
                 -> select('clinics.name as clinic_name', 'staff.*')
                 -> get();
 
-        return view('admin.accountList', ['staffs' => $staffs]);
+        return view('admin.accountList', [
+            'staffs' => $staffs,
+            'clinics' => Clinic::all()
+        ]);
     }
 
     public function schedule()
@@ -100,6 +103,33 @@ class StaffController extends Controller
         }
         
         $appointment->save();
+
+        return redirect()->back();
+    }
+
+    public function staffUpdate(Request $req)
+    {
+        //dd(Staff::findOrFail($req->input('staff_id')));
+        $staff = Staff::findOrFail($req->input('staff_id'));
+        $clinic_staff = DB::table('clinic_have_staff')
+                        -> where('staff_id', '=', $req->input('staff_id'))
+                        -> update(['clinic_id' => $req->input('ClinicUpdate')]);
+
+        //dd($clinic_staff);
+
+        // Check input valid
+        if($req->input('NameUpdate') != null)
+        {
+            $staff->name = $req->input('NameUpdate');
+        }
+        
+        //$staff->name = $req->input('NameUpdate');
+
+        //$clinic_staff->clinic_id = $req->input('ClinicUpdate');
+
+        //dd($staff->clinic_id);
+
+        $staff->save();
 
         return redirect()->back();
     }
