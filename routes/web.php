@@ -64,14 +64,19 @@ Route::get('/', [UserAuthController::class, 'index'])
 Route::resource('user', UserAuthController::class)
     ->middleware('auth:web');
 
-Route::get('/appointment', [UserAuthController::class, 'appointment'])
+Route::get('/appointment', [AppointmentController::class, 'viewAppointment'])
     ->name('user.appointment')
+    ->middleware('auth:web');
+Route::post('/cancelAppointment', [AppointmentController::class, 'cancelAppointment'])
+    ->name('user.cancelAppointment')
+    ->middleware('auth:web');
+Route::post('/updateAppointment', [AppointmentController::class, 'updateAppointment'])
+    ->name('user.updateAppointment')
     ->middleware('auth:web');
 Route::post('/login', [UserAuthController::class, 'handleLogin'])
     ->name('user.handleLogin');
 Route::get('/logout', [UserAuthController::class, 'logout'])
     ->name('user.logout');
-
 Route::post('/create', [UserAuthController::class, 'store'])
     ->name('user.store');
 

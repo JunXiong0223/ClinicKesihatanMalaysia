@@ -121,7 +121,6 @@ class StaffController extends Controller
             $staff->name = $req->input('NameUpdate');
         }
         
-        $staff->save();
         if($staff->save() && $clinic_staff == 1)
         {
             return redirect()->back();

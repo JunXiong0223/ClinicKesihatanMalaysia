@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\User;
 use App\Models\Staff;
+use App\Models\TimeSlot;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -96,5 +97,38 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect()->back()->with('success', 'Your appointment is successful been make');
+    }
+
+    public function viewAppointment()
+    {
+        $appointments = DB::table('appointments')
+                        -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
+                        -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
+                        -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
+                        -> where('user_id', Auth::user()->id)
+                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime')
+                        -> get();
+
+        return view('user.appointment', [
+            'appointments' =>  $appointments,
+            'timeslots' => TimeSlot::all(),
+        ]);
+    }
+
+    public function cancelAppointment(Request $req)
+    {
+        //dd($req->input('appointmentId'));
+        $appointment = Appointment::findOrFail($req->input('appointmentId'));
+
+        $appointment-> status = "Cancel";
+
+        $appointment->save();
+
+        return redirect()->back();
+    }
+
+    public function updateAppointment(Request $req)
+    {
+        return redirect()->back();
     }
 }

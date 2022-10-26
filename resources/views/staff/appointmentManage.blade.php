@@ -26,9 +26,6 @@
                 <tbody>
                    
                     @if (count($appointments) > 0)
-                    @php
-                        $count = 1;
-                    @endphp
                         @foreach ($appointments as $appointment)
                             <tr>
                                 <td>{{$appointment->user_name}}</td>
@@ -49,55 +46,58 @@
                                     @endif
                                 </td>
                                 <td>{{$appointment->status}}</td>
-                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $count }}">Update</button></td>
-                                    
-                            </tr>
-                                <div class="modal fade" id="exampleModal{{ $count }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Update for {{ $appointment->user_id }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <form action="{{ route('staff.update') }}" method="POST">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    
-                                                    <div class="row"> 
-                                                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
-                                                            @if ($appointment->attendance == 1)
-                                                                <input type="checkbox" id="attend" name="attend" value="0" checked disabled>
-                                                            @else
-                                                                <input type="checkbox" id="attend" name="attend" value="1">
-                                                            @endif
-                                                            <label for="attend"> Attend</label><br>
-                                                        </div>  
-                                                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">   
-                                                            <label for="status"> Status</label>
-                                                            <select name="status" id="status">
-                                                                <option value="NA">  </option>
-                                                                <option value="a"> a </option>
-                                                            </select>
-                                                        </div>  
+                                <td>
+                                    @if ($appointment->status == "Cancel")
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $appointment->id }}" disabled>Update</button>
+                                    @else
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $appointment->id }}">Update</button>
+                                        <div class="modal fade" id="exampleModal{{$appointment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Update for {{ $appointment->user_id }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
-                                                    
-                                                    <label for="note">Note</label><br>
-                                                    <textarea name="note" id="note" rows="10" style="width: 100%;"></textarea>
-                                                    <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
+                                                    <form action="{{ route('staff.update') }}" method="POST">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            
+                                                            <div class="row"> 
+                                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
+                                                                    @if ($appointment->attendance == 1)
+                                                                        <input type="checkbox" id="attend" name="attend" value="0" checked disabled>
+                                                                    @else
+                                                                        <input type="checkbox" id="attend" name="attend" value="1">
+                                                                    @endif
+                                                                    <label for="attend"> Attend</label><br>
+                                                                </div>  
+                                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">   
+                                                                    <label for="status"> Status</label>
+                                                                    <select name="status" id="status">
+                                                                        <option value="NA">  </option>
+                                                                        <option value="a"> a </option>
+                                                                    </select>
+                                                                </div>  
+                                                            </div>
+                                                            
+                                                            <label for="note">Note</label><br>
+                                                            <textarea name="note" id="note" rows="10" style="width: 100%;"></textarea>
+                                                            <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @php
-                                $count++;
-                            @endphp
+                                    @endif
+                                </td>
+                            </tr>
+                                
                         @endforeach
                     @endif
                 </tbody>

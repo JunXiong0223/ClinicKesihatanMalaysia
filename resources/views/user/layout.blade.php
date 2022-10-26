@@ -45,7 +45,7 @@
                     </div>
                 @else
                     <span class="navbar-text actions">
-                        <div class="btn-group" role="group" style="padding: 2px;"><button class="btn" type="button" data-bs-target="#login" data-bs-toggle="modal">Login</button><button class="btn btn-success border rounded-pill" type="button" data-bs-target="#modal-2" data-bs-toggle="modal">Sign Up</button></div>
+                        <div class="btn-group" role="group" style="padding: 2px;"><button class="btn" type="button" data-bs-target="#login" data-bs-toggle="modal">Login</button><button class="btn btn-success border rounded-pill" type="button" data-bs-target="#signUp" data-bs-toggle="modal">Sign Up</button></div>
                     </span>
                 @endif
                 
@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-2">
+    <div class="modal fade text-center" role="dialog" tabindex="-1" id="signUp">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">

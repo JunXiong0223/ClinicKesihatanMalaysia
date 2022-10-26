@@ -32,21 +32,6 @@ class UserAuthController extends Controller
         ]);
     }
 
-    public function appointment()
-    {
-        $appointments = DB::table('appointments')
-                        -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
-                        -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
-                        -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
-                        -> where('user_id', Auth::user()->id)
-                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime')
-                        -> get();
-
-        return view('user.appointment', [
-            'appointments' =>  $appointments,
-        ]);
-    }
-
     public function handleLogin(Request $req)
     {
         if(Auth::attempt(

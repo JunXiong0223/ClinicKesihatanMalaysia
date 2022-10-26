@@ -106,10 +106,10 @@
                             <div class="col-6 text-break d-xl-flex d-xxl-flex flex-fill justify-content-xl-center justify-content-xxl-center">
                                 <select class="d-xl-flex flex-fill align-items-xl-center" id="time">
                                     
-                                        <option value="none" selected disabled hidden>Time Slot</option>
-                                        @foreach ($timeslots as $timeslot)
-                                            <option value="{{ $timeslot['id'] }}">{{ $timeslot['ServiceTime'] }}</option>
-                                        @endforeach
+                                    <option value="none" selected disabled hidden>Time Slot</option>
+                                    @foreach ($timeslots as $timeslot)
+                                        <option value="{{ $timeslot['id'] }}">{{ $timeslot['ServiceTime'] }}</option>
+                                    @endforeach
                                     
                                 </select>
                             </div>

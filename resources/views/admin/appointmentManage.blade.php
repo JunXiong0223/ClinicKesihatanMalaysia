@@ -45,7 +45,14 @@
                                     @endif
                                 </td>
                                 <td>{{$appointment->status}}</td>
-                                <td><button>Update</button></td>
+                                <td>
+                                    @if ($appointment->status == "Cancel")
+                                        <button disabled>Update</button>
+                                    @else
+                                        <button>Update</button>
+                                    @endif
+                                    
+                                </td>
                             </tr>
                         @endforeach
                     @endif
