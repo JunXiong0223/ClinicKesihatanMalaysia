@@ -72,10 +72,10 @@
                                                                 
                                                                 <div class="d-inline-flex" style="margin-bottom: 10px;">
                                                                     <div class="col-6 text-break d-xl-flex d-xxl-flex flex-fill justify-content-xl-center justify-content-xxl-center">
-                                                                        <input class="flex-fill" type="date" id="date">
+                                                                        <input class="flex-fill" type="date" id="appointment_date" name="appointment_date">
                                                                     </div>
                                                                     <div class="col-6 text-break d-xl-flex d-xxl-flex flex-fill justify-content-xl-center justify-content-xxl-center">
-                                                                        <select class="d-xl-flex flex-fill align-items-xl-center" id="time">
+                                                                        <select class="d-xl-flex flex-fill align-items-xl-center" id="appointment_time" name="appointment_time">
                                                                             
                                                                             <option value="none" selected disabled hidden>Time Slot</option>
                                                                             @foreach ($timeslots as $timeslot)

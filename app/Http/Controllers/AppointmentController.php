@@ -129,6 +129,51 @@ class AppointmentController extends Controller
 
     public function updateAppointment(Request $req)
     {
-        return redirect()->back();
+        $appointment = Appointment::findOrFail($req->input('appointmentId'));
+
+        $appointment-> attend_date = $req-> input('appointment_date');
+
+        $appointment-> attend_time = $req-> input('appointment_time');
+        
+        $selected_staff;
+        $checks = DB::table('appointments')
+                -> join('clinic_have_staff', 'appointments.staff_id', '=', 'clinic_have_staff.staff_id')
+                -> where('appointments.clinic_id', $appointment-> clinic_id)
+                -> where('appointments.attend_date', $req-> input('appointment_date'))
+                -> where('appointments.attend_time', $req-> input('appointment_time'))
+                -> pluck('appointments.staff_id')
+                -> toArray();
+        
+        if (count($checks) == 0) {
+            $staff = DB::table('clinic_have_staff')
+                    -> join('staff', 'clinic_have_staff.staff_id', 'staff.id')
+                    -> where('clinic_have_staff.clinic_id', '=', $appointment-> clinic_id)
+                    -> first();
+            
+            $selected_staff = $staff->id;
+        }
+        else 
+        {
+            $staffs = DB::table('clinic_have_staff')
+                    -> where('clinic_id', $appointment-> clinic_id)
+                    -> pluck('staff_id')
+                    -> toArray();
+
+            $staff = array_diff($staffs, $checks);
+            
+            reset($staff);
+            $key = key($staff);
+
+            $selected_staff = $staff[$key];
+
+        }
+
+        $appointment-> staff_id = $selected_staff;
+
+        if ($appointment-> save()) {
+            return redirect()->back();
+        }
+
+        return abort(404);
     }
 }
