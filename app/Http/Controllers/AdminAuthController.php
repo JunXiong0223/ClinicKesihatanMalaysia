@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminAuthController extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        $countUser = User::all()->count();
+        //dd($count);
+        return view('admin.home',[
+            'user' => $countUser,
+        ]);
     }
 
     public function login()
