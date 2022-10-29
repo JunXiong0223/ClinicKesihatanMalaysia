@@ -104,6 +104,7 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'N' => 
         array (
@@ -368,6 +369,10 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
@@ -519,8 +524,10 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'App\\Http\\Controllers\\AdminAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminAuthController.php',
         'App\\Http\\Controllers\\AppointmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppointmentController.php',
         'App\\Http\\Controllers\\ClinicController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClinicController.php',
+        'App\\Http\\Controllers\\ClinicHaveStaffController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClinicHaveStaffController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HealthServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/HealthServiceController.php',
+        'App\\Http\\Controllers\\PHPMailerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PHPMailerController.php',
         'App\\Http\\Controllers\\StaffAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffAuthController.php',
         'App\\Http\\Controllers\\StaffController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffController.php',
         'App\\Http\\Controllers\\TimeSlotController' => __DIR__ . '/../..' . '/app/Http/Controllers/TimeSlotController.php',
@@ -534,6 +541,8 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\StoreClinicHaveStaffRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreClinicHaveStaffRequest.php',
+        'App\\Http\\Requests\\UpdateClinicHaveStaffRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateClinicHaveStaffRequest.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Appointment' => __DIR__ . '/../..' . '/app/Models/Appointment.php',
         'App\\Models\\Clinic' => __DIR__ . '/../..' . '/app/Models/Clinic.php',
@@ -543,6 +552,7 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'App\\Models\\Staff' => __DIR__ . '/../..' . '/app/Models/Staff.php',
         'App\\Models\\TimeSlot' => __DIR__ . '/../..' . '/app/Models/TimeSlot.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Policies\\ClinicHaveStaffPolicy' => __DIR__ . '/../..' . '/app/Policies/ClinicHaveStaffPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -656,6 +666,7 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\ClinicHaveStaffFactory' => __DIR__ . '/../..' . '/database/factories/ClinicHaveStaffFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\ClinicHaveStaffSeeder' => __DIR__ . '/../..' . '/database/seeders/ClinicHaveStaffSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -3303,6 +3314,12 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'NunoMaduro\\Collision\\Provider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Provider.php',
         'NunoMaduro\\Collision\\SolutionsRepositories\\NullSolutionsRepository' => __DIR__ . '/..' . '/nunomaduro/collision/src/SolutionsRepositories/NullSolutionsRepository.php',
         'NunoMaduro\\Collision\\Writer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Writer.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
