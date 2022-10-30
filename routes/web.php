@@ -9,6 +9,7 @@ use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\HealthServiceController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TimeSlotController;
+use App\Http\Controllers\PHPMailerController;
 use App\Models\Clinic;
 use App\Models\Image;
 
@@ -120,6 +121,8 @@ Route::get('admin/appointment', [AppointmentController::class, 'index'])
     ->name('admin.appointment');
 Route::post('admin/staffUpdate',[StaffController::class, 'staffUpdate'])
     ->name('admin.staffUpdate');
+Route::post('admin/sendMail',[PHPMailerController::class, 'composeEmail'])
+    ->name('admin.sendMail');
 
 //staff
 Route::get('staff/', [StaffAuthController::class, 'index'])
