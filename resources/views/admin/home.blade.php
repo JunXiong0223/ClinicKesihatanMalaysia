@@ -32,12 +32,12 @@
 
         function drawMaterial() {
             var data = google.visualization.arrayToDataTable([
-                ['City', '2010 Population', '2000 Population'],
-                ['New York City, NY', 8175000, 8008000],
-                ['Los Angeles, CA', 3792000, 3694000],
-                ['Chicago, IL', 2695000, 2896000],
-                ['Houston, TX', 2099000, 1953000],
-                ['Philadelphia, PA', 1526000, 1517000]
+                ['Service', 'Last Month', 'This Month'],
+                ['Service 1', 100, 120],
+                ['Service 2', 80, 140],
+                ['Service 3', 150, 70],
+                ['Service 4', 160, 50],
+                ['Service 5', 200, 300]
             ]);
 
             var materialOptions = {
@@ -82,7 +82,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Appointments</h4>
-                                <h1 class="display-1 text-center card-title">{{$user}}</h1>
+                                <h1 class="display-1 text-center card-title">{{ $appointment }}</h1>
                                 
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Attend</h4>
-                                <h1 class="display-1 text-center card-title">{{$user}}</h1>
+                                <h1 class="display-1 text-center card-title">{{ $attendance }}</h1>
                                 
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Cancel</h4>
-                                <h1 class="display-1 text-center card-title">{{$user}}</h1>
+                                <h1 class="display-1 text-center card-title">{{ $cancel }}</h1>
                                 
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Staffs</h4>
-                                <h1 class="display-1 text-center card-title">{{$user}}</h1>
+                                <h1 class="display-1 text-center card-title">{{$staff}}</h1>
                                 
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Clinics</h4>
-                                <h1 class="display-1 text-center card-title">{{$user}}</h1>
+                                <h1 class="display-1 text-center card-title">{{$clinic}}</h1>
                                 
                             </div>
                         </div>
