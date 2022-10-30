@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \App\Models\Admin::create([
+            'name' => 'admin',
+            'email' => 'admin@email.com',
+            'password' => '$2y$10$ExMxcIW43l0zTFr3d4oEnO8zEztmiWRIF6bmloxDiWe7lop0bbblG',
+        ]);
     }
 }
