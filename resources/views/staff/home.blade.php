@@ -82,7 +82,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Appointments</h4>
-                                <h1 class="display-1 text-center card-title"></h1>
+                                <h1 class="display-1 text-center card-title">{{ $appointments }}</h1>
                                 
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Attend</h4>
-                                <h1 class="display-1 text-center card-title"></h1>
+                                <h1 class="display-1 text-center card-title">{{ $attendance }}</h1>
                                 
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
                                 <h4 class="card-title">Cancel</h4>
-                                <h1 class="display-1 text-center card-title"></h1>
+                                <h1 class="display-1 text-center card-title">{{ $cancel }}</h1>
                                 
                             </div>
                         </div>
