@@ -23,7 +23,7 @@
             <div class="text-center text-white logo py-4 mx-4"><a class="text-white text-decoration-none" id="title" href="#"><strong>Admin</strong></a><a class="text-white float-right" id="sidebarToggleHolder" href="#"><i class="fas fa-bars" id="sidebarToggle"></i></a></div>
         </li>
         <li class="nav-item">
-            <a class="nav-link active text-left text-white py-1 px-0" href="#">
+            <a class="nav-link active text-left text-white py-1 px-0" href="{{ route('admin.home') }}">
                 <i class="fas fa-tachometer-alt mx-3"></i><span class="text-nowrap mx-2">Dashboard</span>
             </a>
         </li>

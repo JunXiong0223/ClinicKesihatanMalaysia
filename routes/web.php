@@ -80,6 +80,9 @@ Route::get('/logout', [UserAuthController::class, 'logout'])
     ->name('user.logout');
 Route::post('/create', [UserAuthController::class, 'store'])
     ->name('user.store');
+Route::get('/resetPassword', function(){
+        return view('user.resetPassword');
+    })->name('user.resetPassword');
 
 //admin
 Route::get('admin/', [AdminAuthController::class, 'index'])

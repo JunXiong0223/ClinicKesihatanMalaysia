@@ -66,24 +66,28 @@
                                                             
                                                             <div class="row"> 
                                                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
-                                                                    @if ($appointment->attendance == 1)
-                                                                        <input type="checkbox" id="attend" name="attend" value="0" checked disabled>
-                                                                    @else
-                                                                        <input type="checkbox" id="attend" name="attend" value="1">
-                                                                    @endif
-                                                                    <label for="attend"> Attend</label><br>
+                                                                    <div class="form-group">
+                                                                        @if ($appointment->attendance == 1)
+                                                                        <input type="checkbox" class="form-check-input" id="attend" name="attend" value="0" checked disabled>
+                                                                        @else
+                                                                            <input type="checkbox" class="form-check-input" id="attend" name="attend" value="1">
+                                                                        @endif
+                                                                        <label for="attend" class="form-check-label"> Attend</label>
+                                                                    </div>
                                                                 </div>  
                                                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">   
-                                                                    <label for="status"> Status</label>
-                                                                    <select name="status" id="status">
-                                                                        <option value="NA">  </option>
-                                                                        <option value="a"> a </option>
-                                                                    </select>
+                                                                    <div class="form-group">
+                                                                        <label for="status"> Status</label>
+                                                                        <select name="status" class="form-control" id="status">
+                                                                            <option value="NA">  </option>
+                                                                            <option value="a"> a </option>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>  
                                                             </div>
                                                             
                                                             <label for="note">Note</label><br>
-                                                            <textarea name="note" id="note" rows="10" style="width: 100%;"></textarea>
+                                                            <textarea name="note" id="note" rows="10" style="width: 100%;" ></textarea>
                                                             <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
                                                         </div>
                                                         <div class="modal-footer">

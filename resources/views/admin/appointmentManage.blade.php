@@ -90,8 +90,20 @@
                                                     @csrf
                                                     <div class="modal-body">
                                                         
-                
+                                                        <div class="form-group">
+                                                            <label for="subject">Subject</label>
+                                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="content">Content</label>
+                                                            <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+                                                            
+                                                        </div>
                                                         
+                                                        <input type="text" id="userEmail" name="userEmail" value="{{ $appointment->user_email }}" readonly>
+                                                        <input type="text" id="userName" name="userName" value="{{ $appointment->user_name }}" readonly>
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

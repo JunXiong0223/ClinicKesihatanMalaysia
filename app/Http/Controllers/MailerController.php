@@ -15,10 +15,10 @@ class MailerController extends Controller
             'user' => strip_tags($req->input('name')),
             'body' => 'You have successful register an accout.',
         ];
-        //dd($req);
+        
         try {
             Mail::to(strip_tags($req->input('email')), strip_tags($req->input('name')))->send(new Mailer($data));
-            return redirect()->back()->with('succes', 'Mail has send');
+            return redirect()->back()->with('success', 'Mail has send');
             
         } catch (Exception $ex) {
             return redirect()->back()->with('failed', 'Mail has send fail');
@@ -27,15 +27,16 @@ class MailerController extends Controller
  
  
     // ========== [ Compose Email ] ================
-    public function composeEmail(Request $request) {
+    public function composeEmail(Request $req) {
         $data = [
-            'subject' => 'Send Mail',
-            'body' => 'Hi there, testing send mail',
+            'subject' => strip_tags($req->input('subject')),
+            'user' => strip_tags($req->input('userName')),
+            'body' => strip_tags($req->input('content')),
         ];
-        //dd($data);
+        //dd(strip_tags($req->input('userName')));
         try {
-            Mail::to('jackjunexing@gmail.com', 'JX')->send(new Mailer($data));
-            return redirect()->back()->with('succes', 'Mail has send');
+            Mail::to(strip_tags($req->input('userEmail')), strip_tags($req->input('userName')))->send(new Mailer($data));
+            return redirect()->back()->with('success', 'Mail has send');
             
         } catch (Exception $ex) {
             return redirect()->back()->with('failed', 'Mail has send fail');
