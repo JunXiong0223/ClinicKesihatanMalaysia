@@ -39,33 +39,55 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Send Mail to </h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Update for {{$clinic['name']}} </h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form action="" method="POST">
+                                                <form action="{{ route('admin.editClinic') }}" method="POST">
                                                     @csrf
                                                     <div class="modal-body">
-                                                        
                                                         <div class="form-group">
-                                                            <label for="subject">Subject</label>
-                                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                                            <label for="NameUpdate">Name</label>
+                                                            <input type="text" class="form-control" id="NameUpdate" name="NameUpdate" aria-describedby="emailHelp" placeholder="{{$clinic['name']}}">
+                                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                         </div>
-
                                                         <div class="form-group">
-                                                            <label for="content">Content</label>
-                                                            <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
-                                                            
+                                                            <label for="AddressUpdate">Address</label>
+                                                            <input type="text" class="form-control" id="AddressUpdate" name="AddressUpdate" placeholder="{{$clinic['address']}}">
                                                         </div>
-                                                        
-                                                        <input type="text" id="userEmail" name="userEmail" value="" readonly>
-                                                        <input type="text" id="userName" name="userName" value="" readonly>
-
+                                                        <div class="form-group">
+                                                            <label for="TeleUpdate">Staff Telephone No.</label>
+                                                            <input type="password" class="form-control" id="TeleUpdate" name="TeleUpdate" placeholder="{{$clinic['telephone_number']}}">
+                                                        </div>
+                                                        {{-- <div class="form-group">
+                                                            <label for="exampleInputPassword1">Password</label>
+                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                        </div> --}}
+                                                        {{-- <div class="form-group">
+                                                            <label for="ClinicUpdate">Change Clinic</label>
+                                                            <select class="form-control" id="ClinicUpdate" name="ClinicUpdate">
+                                                                @foreach ($clinics as $clinic)
+                                                                    @if ($clinic['name'] ==  $staff->clinic_name)
+                                                                        <option value="{{$clinic['id']}}" selected>{{$clinic['name']}}</option>
+                                                                    @else
+                                                                        <option value="{{$clinic['id']}}">{{$clinic['name']}}</option>
+                                                                    @endif
+                                                                    
+                                                                @endforeach
+                                                                
+                                                            </select>
+                                                        </div> --}}
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                        </div>
+                
+                                                        <input type="text" name="clinic_id" id="clinic_id" value="{{$clinic['id']}}" required readonly>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Send Mail</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -26,13 +26,12 @@ class ClinicController extends Controller
     public function edit(Request $req)
     {
         $req -> validate([
-            'clinicName' => 'required|min:5',
-            'ID' => 'required'
+            'clinic_id' => 'required',
         ]);
 
-        $clinic = Clinic::findOrFail($req->input('ID'));
+        $clinic = Clinic::findOrFail($req->input('clinic_id'));
 
-        $clinic->name = strip_tags($req->input('clinicName'));
+        //$clinic->name = strip_tags($req->input('clinicName'));
         
         $clinic->save();
 

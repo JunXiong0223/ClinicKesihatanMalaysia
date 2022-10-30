@@ -30,6 +30,16 @@ class HealthServiceController extends Controller
 
     public function update()
     {
+        $req -> validate([
+            'clinic_id' => 'required',
+        ]);
 
+        $clinic = HealthService::findOrFail($req->input('clinic_id'));
+
+        //$clinic->name = strip_tags($req->input('clinicName'));
+        
+        $clinic->save();
+
+        return redirect()->route('admin.healthServiceList');
     }
 }

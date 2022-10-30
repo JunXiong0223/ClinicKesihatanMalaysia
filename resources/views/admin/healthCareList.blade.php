@@ -34,7 +34,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Send Mail to </h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Update for {{ $service['ServiceName'] }} </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -42,25 +42,30 @@
                                             <form action="" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
-                                                    
                                                     <div class="form-group">
-                                                        <label for="subject">Subject</label>
-                                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                                        <label for="NameUpdate">Name</label>
+                                                        <input type="text" class="form-control" id="NameUpdate" name="NameUpdate" aria-describedby="emailHelp" placeholder="">
+                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                     </div>
-
                                                     <div class="form-group">
-                                                        <label for="content">Content</label>
-                                                        <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
-                                                        
+                                                        <label for="AddressUpdate">Address</label>
+                                                        <input type="text" class="form-control" id="AddressUpdate" name="AddressUpdate" placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TeleUpdate">Staff Telephone No.</label>
+                                                        <input type="password" class="form-control" id="TeleUpdate" name="TeleUpdate" placeholder="">
                                                     </div>
                                                     
-                                                    <input type="text" id="userEmail" name="userEmail" value="" readonly>
-                                                    <input type="text" id="userName" name="userName" value="" readonly>
-
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                    </div>
+            
+                                                    <input type="text" name="service_id" id="service_id" value="{{$service['id']}}" required readonly>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Send Mail</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                                 </div>
                                             </form>
                                         </div>

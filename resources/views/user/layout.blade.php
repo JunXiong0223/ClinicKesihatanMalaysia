@@ -161,10 +161,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-check">
-                                        <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                                        <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" onchange="document.getElementById('signup').disabled = !this.checked;">I agree to the <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_blank">license terms</a> .</label>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary d-block w-100" type="submit">Sign Up</button>
+                                    <button id="signup" class="btn btn-primary d-block w-100" type="submit" disabled>Sign Up</button>
                                 </div>
                                 <button type="button" class="already" id="signed" style="all: unset; cursor: pointer;" data-bs-dismiss="modal" data-bs-target="#login" data-bs-toggle="modal">You already have an account? Login here.</button>
                             </form>    
