@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{url('assetsUser/css/SIdebar-Responsive-2.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/styles.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/Testimonials.css')}}">
+
+    
 </head>
 
 <body>
@@ -48,7 +50,10 @@
                     </div>
                 @else
                     <span class="navbar-text actions">
-                        <div class="btn-group" role="group" style="padding: 2px;"><button class="btn" type="button" data-bs-target="#login" data-bs-toggle="modal">Login</button><button class="btn btn-success border rounded-pill" type="button" data-bs-target="#signUp" data-bs-toggle="modal">Sign Up</button></div>
+                        <div class="btn-group" role="group" style="padding: 2px;">
+                            <button class="btn" type="button" data-bs-target="#login" data-bs-toggle="modal">Login</button>
+                            <button class="btn btn-success border rounded-pill" type="button" data-bs-target="#signUp" data-bs-toggle="modal">Sign Up</button>
+                        </div>
                     </span>
                 @endif
                 
@@ -161,16 +166,17 @@
                                 <div class="mb-3">
                                     <button class="btn btn-primary d-block w-100" type="submit">Sign Up</button>
                                 </div>
-                                <a class="already" href="login.html">You already have an account? Login here.</a>
-                            </form>
+                                <button type="button" class="already" id="signed" style="all: unset; cursor: pointer;" data-bs-dismiss="modal" data-bs-target="#login" data-bs-toggle="modal">You already have an account? Login here.</button>
+                            </form>    
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
+    
+
     <script src="{{url('assetsUser/bootstrap/js/bootstrap.min.js')}}"></script> 
-    <script src="{{url('assetsUser/js/Sidebar-Menu.js')}}"></script>
     
     @yield('js')
 
