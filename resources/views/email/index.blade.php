@@ -11,7 +11,7 @@
     @php
         //dd( $data );
     @endphp
-    
+    <h2>Hi {{$data['user']}},</h2>
     <p>{{ $data['body'] }}</p>
 </body>
 </html>

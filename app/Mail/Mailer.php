@@ -30,6 +30,6 @@ class Mailer extends Mailable
     public function build()
     {   
         //dd($this->data);
-        return $this->from('HealthCareCentre@email.com', 'Health Care Centre')->subject('Lala')->view('email.index')->with('data',$this->data);
+        return $this->from('HealthCareCentre@email.com', 'Health Care Centre')->subject($this->data['subject'])->view('email.index')->with('data',$this->data);
     }
 }
