@@ -30,7 +30,7 @@ use App\Models\Image;
 
 Route::get('/clinic', function () {
     return view('user.clinicList',[
-        'clinics' => Clinic::all(),
+        'clinics' => Clinic::paginate(5),
         'images' => Image::all(),
         //dd( Image::all()->where('clinic_id')),
     ]);
