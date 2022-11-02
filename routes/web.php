@@ -12,6 +12,7 @@ use App\Http\Controllers\TimeSlotController;
 use App\Http\Controllers\MailerController;
 use App\Models\Clinic;
 use App\Models\Image;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,33 @@ use App\Models\Image;
 // });
 
 Route::get('/clinic', function () {
+
+    // if ($req->input('search')) {
+    //     $clinics = Clinic::where('name', 'LIKE', '%'.$req->input('search').'%')->paginate(5);
+    // } else {
+    //     $clinics = Clinic::paginate(5);
+    // }
     return view('user.clinicList',[
         'clinics' => Clinic::paginate(5),
         'images' => Image::all(),
         //dd( Image::all()->where('clinic_id')),
     ]);
 })->name('clinic');
+
+Route::post('/clinic', function(Request $req){
+
+    //dd($req->input('search'));
+    //if ($req->input('search')) {
+        //$clinics = Clinic::where('name', 'LIKE', '%'.$req->input('search').'%')->get();
+    // } else {
+    //     $clinics = Clinic::paginate(5);
+    // }
+    return view('user.clinicList',[
+        'clinics' => Clinic::where('name', 'LIKE', '%'.$req->input('search').'%')->paginate(5),
+        'images' => Image::all(),
+        //dd( Image::all()->where('clinic_id')),
+    ]);
+})->name('clinicSearch');
 
 Route::resource('clinics', ClinicController::class);
 

@@ -7,9 +7,10 @@
                 <h1 class="text-center d-inline-flex justify-content-lg-center align-items-lg-center">Clinic List</h1>
             </div>
             <div class="col d-flex float-start d-md-flex d-xxl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center">
-                <form class="d-flex float-end justify-content-center align-items-center align-items-md-center flex-lg-fill justify-content-xxl-center align-items-xxl-center" style="margin-right: 18px;">
-                    <input class="form-control me-auto" type="search" placeholder="Search Clinic Name" style="max-width: 800px;">
-                    <i class="fa fa-search d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="margin-left: 11px;font-size: 24px;"></i>
+                <form action="{{ route('clinicSearch') }}" method="POST" class="d-flex float-end justify-content-center align-items-center align-items-md-center flex-lg-fill justify-content-xxl-center align-items-xxl-center" style="margin-right: 18px;">
+                    @csrf
+                    <input class="form-control me-auto" type="search" placeholder="Search Clinic Name" style="max-width: 800px;" name="search" id="search">
+                    <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-search d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="margin-left: 11px;font-size: 24px;"></i></button>
                 </form>
             </div>
         </div>
@@ -111,19 +112,13 @@
                     $corousel++;
                 @endphp
             @endforeach
+        @else
+            <h1>No Clinic Found</h1>
         @endif
-        
+       
         <div class="col">
             <nav class="text-center d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
-                {{-- <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                </ul> --}}
+                
                 {{ $clinics->links() }}
 
             </nav>
