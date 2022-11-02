@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
 {
+    public function index()
+    {
+        return view('admin.accountManage',[
+            'clinics' => Clinic::all(),
+        ]);
+    }
+
     public function store(Request $req)
     {
         $req->validate([

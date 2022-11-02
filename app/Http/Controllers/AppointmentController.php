@@ -65,6 +65,11 @@ class AppointmentController extends Controller
                     -> where('clinic_have_staff.clinic_id', '=', $req-> input('clinic_id'))
                     -> first();
 
+            //check does jave staff for clinic 
+            if ($staff == null) {
+                return redirect()->back()->with('failed', 'There is not available doctor for selected data and time.');
+            }        
+
             $selected_staff = $staff->id;
         }
         else 
@@ -79,6 +84,10 @@ class AppointmentController extends Controller
             reset($staff);
             $key = key($staff);
             //dd($key);
+
+            if ($key == null) {
+                return redirect()->back()->with('failed', 'There is not available doctor for selected data and time.');
+            }
 
             $selected_staff = $staff[$key];
 

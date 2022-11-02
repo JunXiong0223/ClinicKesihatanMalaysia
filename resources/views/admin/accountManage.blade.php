@@ -63,9 +63,14 @@
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffTelNo">Clinic Assigned</label>
                     <select class="form-control" name="clinic_id" id="clinic_id" required>
                         <option value="" selected disabled hidden>Select a Clinic</option>
-                        @foreach ($clinics as $clinic)
-                            <option value="{{ $clinic['id'] }}">{{ $clinic['name'] }}</option>
-                        @endforeach
+                        @if ($clinics != null)
+                            @foreach ($clinics as $clinic)
+                                <option value="{{ $clinic['id'] }}">{{ $clinic['name'] }}</option>
+                            @endforeach
+                        @else
+                            <option value="" disabled>No Clinic Created</option>
+                        @endif
+                        
                     </select>
                     @error('clinic_id')
                        {{$message}}
