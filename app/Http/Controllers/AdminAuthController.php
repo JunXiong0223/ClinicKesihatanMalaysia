@@ -29,15 +29,26 @@ class AdminAuthController extends Controller
                         -> where('appointments.status', '=', 'Cancel')
                         -> count();                
                         
-        //dd($attend_date);
+        $pies = DB::table('appointments')
+                -> join('health_services', 'appointments.service_id', '=', 'health_services.id') 
+                -> select('health_services.ServiceName', DB::raw('count(*) as val'))
+                -> whereRaw('MONTH(appointments.attend_date) =?' ,date('m') - 1)
+                -> groupBy('health_services.id')
+                -> get();
+                // $month = DB::table('appointments')
+                // -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
+                // -> whereRaw('MONTH(appointments.attend_date) =?' ,date('m') - 1)
+                // -> count(); 
+                
+        //dd($pies);
         return view('admin.home',[
             'user' => $countUser,
             'staff' => $countStaff,
             'clinic' => $countClinic,
             'appointment' => $appointment,
             'attendance' => $attendance,
-            'cancel' => $cancel
-
+            'cancel' => $cancel,
+            'pies' => $pies
         ]);
     }
 
