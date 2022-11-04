@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use App\Models\Staff;
 use App\Models\Clinic;
 use App\Models\Appointment;
@@ -156,6 +157,25 @@ class StaffController extends Controller
 
         $note = HealthNote::where('user_id', $user->user_id)->get();
 
-        return redirect()->back()->with(['notes' => $note]);
+        //dd($note);
+
+        // return view('staff.appointmentHealthNote', [
+        //     'notes' => $note,
+        // ]);
+
+        return redirect()->back()->with('notes', $note);
+    }
+
+    public function info($id)
+    {
+        $user = Appointment::findOrFail($id);
+
+        //dd($user->user_id);
+
+        $infos = User::where('id', $user->user_id)->get();
+
+        //dd($infos);
+
+        return redirect()->back()->with(['infos' => $infos]);
     }
 }

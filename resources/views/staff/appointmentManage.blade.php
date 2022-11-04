@@ -20,16 +20,17 @@
                         <th>Attend Time</th>
                         <th>Attendance</th>
                         <th>Status</th>
+                        <th>Health Note</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                    
-                    @if (count($appointments) > 0)
+                    @if ($appointments != null)
                         @foreach ($appointments as $appointment)
                             <tr>
                                 <td>
-                                    <a href="{{ route('staff.healthNote', ['id' => $appointment->id]) }}">{{$appointment->user_name}} </a>
+                                    <a href="{{ route('staff.info', ['id' => $appointment->id]) }}"> {{$appointment->user_name}}</a>
                                 </td>
                                 <td>{{$appointment->clinic_name}}</td>
                                 <td>{{$appointment->staff_id}}</td>
@@ -48,6 +49,14 @@
                                     @endif
                                 </td>
                                 <td>{{$appointment->status}}</td>
+                                <td>
+                                    <a href="{{ route('staff.healthNote', ['id' => $appointment->id]) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                                            <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+                                            <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+                                        </svg> 
+                                    </a>
+                                </td>
                                 <td>
                                     @if ($appointment->status == "Cancel")
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $appointment->id }}" disabled>Update</button>
@@ -112,6 +121,8 @@
         <div class="col"></div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
            
+            {{-- @include('staff.appointmentHealthNote') --}}
+
             @if (session()->get('notes'))
                 @foreach (session()->get('notes') as $note)
                     <label for="">User</label>{{$note->user_id}} <br>
@@ -124,10 +135,26 @@
                 @php
                      Session::forget('notes');
                 @endphp
+
+                {{-- {{ session()->get('notes')->links() }} --}}
             @endif
             
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
+            @if (session()->get('infos'))
+                @foreach (session()->get('infos') as $info)
+                    <label for="">Name</label>{{$info->name}} <br>
+                    {{-- <label for="">Telephone</label>{{$info->staff_id}} <br> --}}
+                    <label for="">Email</label>{{$info->email}} <br>
+
+                    <p>===============================================</p>
+                @endforeach
+
+                @php
+                     Session::forget('notes');
+                @endphp
+            @endif
+        </div>
     </div>
    
 @endsection

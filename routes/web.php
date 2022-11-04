@@ -165,6 +165,8 @@ Route::post('staff/schedule', [StaffController::class, 'update'])
     ->name('staff.update');
 Route::get('staff/health_history/{id}', [StaffController::class, 'health_note'])
     ->name('staff.healthNote');    
+Route::get('staff/info/{id}', [StaffController::class, 'info'])
+    ->name('staff.info');  
 
 //Appointment
 Route::post('appointment/', [AppointmentController::class, 'store'])
