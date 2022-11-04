@@ -21,7 +21,7 @@
         ]);
 
         var options = {
-            title: 'My Daily Activities'
+            title: 'Date'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -71,6 +71,7 @@
     <div class="row" >
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
             <p><br>List of staff<br><br></p>
+            <button onclick="remind()" id="press">press</button>
         </div>
         <div class="row" style="box-shadow: 0px 0px 20px 1px; border-radius: 10px;">
             <div class="col-9 d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex flex-fill justify-content-center justify-content-sm-center justify-content-md-center align-items-md-center justify-content-lg-center" style="margin-top: 5px;margin-bottom: 5px;">
@@ -84,8 +85,8 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Appointments</h4>
-                                <h1 class="display-1 text-center card-title">{{ $appointment }}</h1>
+                                <h5 class="card-title">Today Appointments</h5>
+                                <h5 class="display-1 text-center card-text">{{ $appointment }}</h5>
                                 
                             </div>
                         </div>
@@ -93,8 +94,8 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Attend</h4>
-                                <h1 class="display-1 text-center card-title">{{ $attendance }}</h1>
+                                <h5 class="card-title">Today Attend</h5>
+                                <h1 class="display-1 text-center card-text">{{ $attendance }}</h1>
                                 
                             </div>
                         </div>
@@ -102,8 +103,8 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Cancel</h4>
-                                <h1 class="display-1 text-center card-title">{{ $cancel }}</h1>
+                                <h5 class="card-title">Today Cancel</h5>
+                                <h1 class="display-1 text-center card-text">{{ $cancel }}</h1>
                                 
                             </div>
                         </div>
@@ -118,7 +119,7 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Users</h4>
+                                <h5 class="card-title">Users</h5>
                                 <h1 class="display-1 text-center card-title">{{$user}}</h1>
                                
                             </div>
@@ -127,7 +128,7 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Staffs</h4>
+                                <h5 class="card-title">Staffs</h5>
                                 <h1 class="display-1 text-center card-title">{{$staff}}</h1>
                                 
                             </div>
@@ -136,7 +137,7 @@
                     <div class="col-12 d-md-flex flex-fill justify-content-md-center align-items-md-center" style="padding: 10px;">
                         <div class="card border-dark" style="border-radius: 18px; width: 750px; height: 187.8px;">
                             <div class="card-body" style="border-radius: -1px;">
-                                <h4 class="card-title">Clinics</h4>
+                                <h5 class="card-title">Clinics</h5>
                                 <h1 class="display-1 text-center card-title">{{$clinic}}</h1>
                                 
                             </div>

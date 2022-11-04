@@ -28,7 +28,9 @@
                     @if (count($appointments) > 0)
                         @foreach ($appointments as $appointment)
                             <tr>
-                                <td>{{$appointment->user_name}}</td>
+                                <td>
+                                    <a href="{{ route('staff.healthNote', ['id' => $appointment->id]) }}">{{$appointment->user_name}} </a>
+                                </td>
                                 <td>{{$appointment->clinic_name}}</td>
                                 <td>{{$appointment->staff_id}}</td>
                                 <td>{{$appointment->ServiceName}}</td>
@@ -108,7 +110,23 @@
             </table>
         </div>
         <div class="col"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
+           
+            @if (session()->get('notes'))
+                @foreach (session()->get('notes') as $note)
+                    <label for="">User</label>{{$note->user_id}} <br>
+                    <label for="">Staff</label>{{$note->staff_id}} <br>
+                    <label for="">Note</label>{{$note->note}} <br>
+
+                    <p>===============================================</p>
+                @endforeach
+
+                @php
+                     Session::forget('notes');
+                @endphp
+            @endif
+            
+        </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
     </div>
    

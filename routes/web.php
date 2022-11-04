@@ -163,8 +163,14 @@ Route::get('staff/schedule', [StaffController::class, 'schedule'])
     ->name('staff.schedule');
 Route::post('staff/schedule', [StaffController::class, 'update'])
     ->name('staff.update');
+Route::get('staff/health_history/{id}', [StaffController::class, 'health_note'])
+    ->name('staff.healthNote');    
 
 //Appointment
 Route::post('appointment/', [AppointmentController::class, 'store'])
     ->name('user.appointment')
     ->middleware('auth:web');
+
+//Mailer
+Route::get('sendReminder/', [MailerController::class, 'reminder'])
+    ->name('reminder');

@@ -8,6 +8,7 @@ use App\Models\Staff;
 use App\Models\Clinic;
 use App\Models\Appointment;
 use App\Models\ClinicHaveStaff;
+use App\Models\HealthNote;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -89,6 +90,7 @@ class StaffController extends Controller
 
         return view('staff.appointmentManage', [
             'appointments' => $appointments,
+            'notes' => null,
         ]);
     }
 
@@ -106,6 +108,19 @@ class StaffController extends Controller
         
         $appointment->save();
 
+        //update the user health note
+        $note = new HealthNote();
+
+        if ($req->input('note') != null) {
+            $note->user_id = $appointment->user_id;
+            $note->staff_id = Auth::guard('staff')->user()->id;
+            $note->appointment_id = $req->input('appointment_id');
+            $note->note = $req->input('note');
+            $note->is_deleted = 0;
+
+            $note->save();
+        }
+        
         return redirect()->back();
     }
 
@@ -131,4 +146,16 @@ class StaffController extends Controller
         return abort(404);
     }
 
+    public function health_note($id)
+    {
+        //dd($id);
+
+        $user = Appointment::findOrFail($id);
+
+        //dd($user->user_id);
+
+        $note = HealthNote::where('user_id', $user->user_id)->get();
+
+        return redirect()->back()->with(['notes' => $note]);
+    }
 }

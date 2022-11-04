@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Admin</title>
     <link rel="stylesheet" href="{{ url('assetsAdmin/bootstrap/css/bootstrap.min.css') }}"> 
@@ -107,6 +108,14 @@
     <script src="{{ url('assetsAdmin/js/bs-init.js') }}"></script>
     <script src="{{ url('assetsAdmin/js/sidebar.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    
+    <script>
+
+        function remind(){
+            window.location.href = "{{ route('reminder')}}";
+        }
+        
+    </script>
 </body>
 
 </html>

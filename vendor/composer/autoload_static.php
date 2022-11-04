@@ -543,6 +543,7 @@ class ComposerStaticInit8c2219fae93216ce72078489367e7052
         'App\\Models\\Appointment' => __DIR__ . '/../..' . '/app/Models/Appointment.php',
         'App\\Models\\Clinic' => __DIR__ . '/../..' . '/app/Models/Clinic.php',
         'App\\Models\\ClinicHaveStaff' => __DIR__ . '/../..' . '/app/Models/ClinicHaveStaff.php',
+        'App\\Models\\HealthNote' => __DIR__ . '/../..' . '/app/Models/HealthNote.php',
         'App\\Models\\HealthService' => __DIR__ . '/../..' . '/app/Models/HealthService.php',
         'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
         'App\\Models\\Staff' => __DIR__ . '/../..' . '/app/Models/Staff.php',
