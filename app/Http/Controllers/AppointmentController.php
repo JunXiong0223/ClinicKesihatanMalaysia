@@ -110,16 +110,47 @@ class AppointmentController extends Controller
 
     public function viewAppointment()
     {
-        $appointments = DB::table('appointments')
+        $upcoming_appointments = DB::table('appointments')
                         -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
                         -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
                         -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
+                        -> join('staff', 'appointments.staff_id', '=', 'staff.id')
+                        -> where('appointments.attendance', 0)
+                        -> where('appointments.status', 'NA')
                         -> where('user_id', Auth::user()->id)
-                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime')
+                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime', 'staff.name')
+                        -> orderBy('appointments.attend_date', 'asc')
+                        -> take(20)
                         -> get();
 
+        $attend_appointments = DB::table('appointments')
+                        -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
+                        -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
+                        -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
+                        -> join('staff', 'appointments.staff_id', '=', 'staff.id')
+                        -> where('appointments.attendance', 1)
+                        -> where('user_id', Auth::user()->id)
+                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime', 'staff.name')
+                        -> orderBy('appointments.attend_date', 'desc')
+                        -> take(20)
+                        -> get();    
+
+        $cancel_appointments = DB::table('appointments')
+                        -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
+                        -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
+                        -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
+                        -> join('staff', 'appointments.staff_id', '=', 'staff.id')
+                        -> where('appointments.status', 'Cancel')
+                        -> where('user_id', Auth::user()->id)
+                        -> select('appointments.*', 'clinics.name as clinic_name', 'clinics.address', 'health_services.ServiceName', 'time_slots.ServiceTime', 'staff.name')
+                        -> orderBy('appointments.attend_date', 'desc')
+                        -> take(20)
+                        -> get();
+        //dd($cancel_appointments);
         return view('user.appointment', [
-            'appointments' =>  $appointments,
+            'upcoming_appointments' => $upcoming_appointments,
+            'attend_appointments' => $attend_appointments ,
+            'cancel_appointments' => $cancel_appointments,
             'timeslots' => TimeSlot::all(),
         ]);
     }

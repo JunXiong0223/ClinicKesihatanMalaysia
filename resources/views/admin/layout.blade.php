@@ -30,11 +30,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link text-left text-white py-1 px-0" href="{{ route('admin.appointment') }}">
-                <i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">Appointment</span>
+                <i class="fa fa-calendar-o mx-3"></i><span class="text-nowrap mx-2">Appointment</span>
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Staff</span><i class="fas fa-caret-down float-none float-lg-right fa-sm"></i></a>
+            <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#">
+                <i class="fa fa-user-md mx-3" aria-hidden="true"></i></i><span class="text-nowrap mx-2">Staff</span><i class="fas fa-caret-down float-none float-lg-right fa-sm"></i></a>
             <div class="dropdown-menu border-0 animated fadeIn">
                 <a class="dropdown-item text-white" href="{{ route('admin.staffList') }}"><span>Staff List</span></a>
                 <a class="dropdown-item text-white" href="{{ route('admin.createStaff') }}"><span>Create Staff</span></a>
@@ -43,7 +44,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#">
-                <i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Clinics</span>
+                <i class="fa fa-hospital-o mx-3" aria-hidden="true"></i></i><span class="text-nowrap mx-2">Clinics</span>
                 <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
             </a>
             <div class="dropdown-menu border-0 animated fadeIn">
@@ -60,7 +61,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#">
-                <i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Healthcare Services</span>
+                <i class="fa fa-tasks mx-3" aria-hidden="true"></i></i><span class="text-nowrap mx-2">Healthcare Services</span>
                 <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
             </a>
             <div class="dropdown-menu border-0 animated fadeIn">
@@ -77,7 +78,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#">
-                <i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Services Time Slot</span>
+                <i class="fa fa-clock-o mx-3" aria-hidden="true"></i></i><span class="text-nowrap mx-2">Services Time Slot</span>
                 <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
             </a>
             <div class="dropdown-menu border-0 animated fadeIn">
@@ -92,10 +93,16 @@
                 </a>
             </div>
         </li>
-        
+        <li class="nav-item">
+            <a class="nav-link text-left text-white py-1 px-0" href="{{ route('reminder') }}">
+                <i class="fa fa-envelope  mx-3" aria-hidden="true"></i>
+                Send Reminder
+            </a>
+        </li>
         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Settings</span><i class="fas fa-caret-down float-none float-lg-right fa-sm"></i></a>
             <div class="dropdown-menu border-0 animated fadeIn"><a class="dropdown-item text-white" href="#"><span>Change password</span></a><a class="dropdown-item text-white" href="#"><span>Change email</span></a><a class="dropdown-item text-white" href="#"><span>More</span></a></div>
         </li>
+        
         <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{{ route('admin.logout') }}"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
     </ul>
     <div class="container article-clean">
@@ -109,13 +116,6 @@
     <script src="{{ url('assetsAdmin/js/sidebar.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     
-    <script>
-
-        function remind(){
-            window.location.href = "{{ route('reminder')}}";
-        }
-        
-    </script>
 </body>
 
 </html>
