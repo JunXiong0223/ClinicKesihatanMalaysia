@@ -44,8 +44,8 @@
                 @if (Auth::user())
                     <div class="dropdown" style="padding: 13px;"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="far fa-user-circle" style="font-size: 30px;"></i></a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="{{ route('user.show', ['user' => md5(Auth::user()->id)]) }}">Profile<i class="fa fa-user" style="margin-left: 5px;"></i></a>
-                            <a class="dropdown-item" href="{{ route('user.appointment') }}">My Appointment<i class="fa fa-calendar" style="margin-left: 5px;"></i></a>
-                            <a class="dropdown-item" href="{{ route('user.resetPassword') }}">Reset Password<i class="fa fa-calendar" style="margin-left: 5px;"></i></a>
+                            <a class="dropdown-item" href="{{ route('user.appointment', ['id' => md5(Auth::user()->id)]) }}">My Appointment<i class="fa fa-calendar" style="margin-left: 5px;"></i></a>
+                            <a class="dropdown-item" href="{{ route('user.resetPassword') }}">Reset Password<i class="fa fa-key" style="margin-left: 5px;"></i></a>
                             <a class="dropdown-item" href="{{ route('user.logout') }}">Logout<i class="fa fa-sign-out" style="margin-left: 5px;"></i></a></div>
                     </div>
                 @else

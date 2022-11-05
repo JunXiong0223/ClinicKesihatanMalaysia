@@ -129,6 +129,26 @@
                     <label for="">Staff</label>{{$note->staff_id}} <br>
                     <label for="">Note</label>{{$note->note}} <br>
 
+                    <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
+                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
+                            <h2>{{$appointment->attend_date}}</h2><span style="font-size: 26px;">{{$appointment->ServiceTime}}</span>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-4" style="margin-bottom: 6px; margin-top: 6px;">
+                            <h2>{{$appointment->clinic_name}}</h2><span style="font-size: 26px;">{{ $appointment->address }}</span>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
+                            <h2>Doctor</h2><span style="font-size: 26px;">{{ $appointment->name }}</span>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
+                            <h3>Health Service</h3><span style="font-size: 26px;">{{ $appointment->ServiceName }}</span>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-2 d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-bottom: 6px; margin-top: 6px;">
+                            <div class="btn-group d-flex d-sm-flex justify-content-center justify-content-sm-center" role="group">
+                                <button class="btn btn-primary" type="button" data-bs-target="#cancelAppointment{{$appointment->id}}" data-bs-toggle="modal">Cancel</button>
+                                <button class="btn btn-primary" type="button" data-bs-target="#updateAppointment{{$appointment->id}}" data-bs-toggle="modal">Update</button>
+                            </div>
+                        </div>
+                    </div>
                     <p>===============================================</p>
                 @endforeach
 
@@ -155,6 +175,44 @@
                 @endphp
             @endif
         </div>
+    </div>
+    <div class="row" style="box-shadow: 0px 0px 4px; border-radius: 5px; padding: 5px;">
+        <div class="col">
+            <label for="">Patient</label>
+            <span></span>
+        </div>
+        <div class="col">
+            <label for="">Doctor</label>
+            <span></span>
+        </div>
+
+        <div class="col">
+            <label for="">Service</label>
+            <span></span>
+        </div>
+
+        <div class="col-12 text-justify d-xl-flex align-items-xl-center">
+            <p class="text-break text-justify">Lorem ipsum dolor sit amet, eu vim essent oblique, vix iuvaret mediocrem urbanitas et, possim consetetur an cum. Mea ea regione voluptatibus, eius impedit voluptatibus eu quo, omnium mandamus duo ne. Mundi abhorreant ullamcorper ad nam, cu nec quaeque vulputate, hinc putant cu pro. Pro dolore suavitate sadipscing at.
+
+                Sed repudiare iracundia an. Dicta prompta et qui, ex magna error pro. Quo dolores gubergren no, ex pro option labores dissentiunt. Ei vix quot tantas, sed dolorum forensibus ex, no scaevola dignissim eos. Habeo alterum cu per, pro veri atomorum ex. Qui cu tollit nemore intellegebat, ut fierent sapientem adversarium sit. Probo habeo vituperatoribus quo in.
+                
+                Id pro solum postea, vis quas aliquando ex, an apeirian vulputate mei. An usu ubique vulputate, oporteat gloriatur in est. Honestatis delicatissimi concludaturque ex per, his odio officiis deseruisse te. Mei erant possim ullamcorper ex, eu altera deserunt nec, et mazim iusto scriptorem mea. Ut discere periculis voluptatum pri, at eum affert singulis repudiare.
+                
+                In assum repudiandae pri. Qui tibique appetere mandamus id. Sed cu vivendum contentiones. Debet evertitur philosophia eu vel, diam hendrerit ea his. Id dicam insolens reprimique eam. Error numquam repudiandae vix et, eu exerci conceptam per, ferri salutatus comprehensam eum id.
+                
+                Duis velit in eos, ut pri ornatus vivendo dissentiet. Wisi doming efficiendi cu ius, essent ceteros nec no. Altera appellantur no mea, wisi illum eu vix. An usu dico principes, pro quis sumo constituam ex.</p>
+        </div>
+
+        <div class="col">
+            <label for="">Clinic</label>
+            <span></span>
+        </div>
+
+        <div class="col">
+            <label for="">Attend Date</label>
+            <span></span>
+        </div>
+
     </div>
    
 @endsection
