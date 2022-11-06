@@ -123,13 +123,13 @@
            
             {{-- @include('staff.appointmentHealthNote') --}}
 
-            @if (session()->get('notes'))
+            {{-- @if (session()->get('notes'))
                 @foreach (session()->get('notes') as $note)
                     <label for="">User</label>{{$note->user_id}} <br>
                     <label for="">Staff</label>{{$note->staff_id}} <br>
-                    <label for="">Note</label>{{$note->note}} <br>
+                    <label for="">Note</label>{{$note->note}} <br> --}}
 
-                    <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
+                    {{-- <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
                         <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
                             <h2>{{$appointment->attend_date}}</h2><span style="font-size: 26px;">{{$appointment->ServiceTime}}</span>
                         </div>
@@ -148,16 +148,16 @@
                                 <button class="btn btn-primary" type="button" data-bs-target="#updateAppointment{{$appointment->id}}" data-bs-toggle="modal">Update</button>
                             </div>
                         </div>
-                    </div>
-                    <p>===============================================</p>
+                    </div> --}}
+                    {{-- <p>===============================================</p>
                 @endforeach
 
                 @php
                      Session::forget('notes');
-                @endphp
+                @endphp --}}
 
                 {{-- {{ session()->get('notes')->links() }} --}}
-            @endif
+            {{-- @endif --}}
             
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
@@ -171,48 +171,48 @@
                 @endforeach
 
                 @php
-                     Session::forget('notes');
+                     Session::forget('infos');
                 @endphp
             @endif
         </div>
     </div>
-    <div class="row" style="box-shadow: 0px 0px 4px; border-radius: 5px; padding: 5px;">
-        <div class="col">
-            <label for="">Patient</label>
-            <span></span>
-        </div>
-        <div class="col">
-            <label for="">Doctor</label>
-            <span></span>
-        </div>
+    @if (session()->get('notes'))
+        @foreach (session()->get('notes') as $note)
+            <div class="row" style="box-shadow: 0px 0px 4px; border-radius: 5px; padding: 5px;">
+                <div class="col">
+                    <label for="">Patient: </label>
+                    <span>{{ $note->user }}</span>
+                </div>
+                <div class="col">
+                    <label for="">Doctor: </label>
+                    <span>{{ $note->staff }}</span>
+                </div>
 
-        <div class="col">
-            <label for="">Service</label>
-            <span></span>
-        </div>
+                <div class="col">
+                    <label for="">Service: </label>
+                    <span>{{ $note->ServiceName }}</span>
+                </div>
 
-        <div class="col-12 text-justify d-xl-flex align-items-xl-center">
-            <p class="text-break text-justify">Lorem ipsum dolor sit amet, eu vim essent oblique, vix iuvaret mediocrem urbanitas et, possim consetetur an cum. Mea ea regione voluptatibus, eius impedit voluptatibus eu quo, omnium mandamus duo ne. Mundi abhorreant ullamcorper ad nam, cu nec quaeque vulputate, hinc putant cu pro. Pro dolore suavitate sadipscing at.
+                <div class="col-12 text-justify d-xl-flex align-items-xl-center">
+                    <p class="text-break text-justify">{{ $note->note }}</p>
+                </div>
 
-                Sed repudiare iracundia an. Dicta prompta et qui, ex magna error pro. Quo dolores gubergren no, ex pro option labores dissentiunt. Ei vix quot tantas, sed dolorum forensibus ex, no scaevola dignissim eos. Habeo alterum cu per, pro veri atomorum ex. Qui cu tollit nemore intellegebat, ut fierent sapientem adversarium sit. Probo habeo vituperatoribus quo in.
-                
-                Id pro solum postea, vis quas aliquando ex, an apeirian vulputate mei. An usu ubique vulputate, oporteat gloriatur in est. Honestatis delicatissimi concludaturque ex per, his odio officiis deseruisse te. Mei erant possim ullamcorper ex, eu altera deserunt nec, et mazim iusto scriptorem mea. Ut discere periculis voluptatum pri, at eum affert singulis repudiare.
-                
-                In assum repudiandae pri. Qui tibique appetere mandamus id. Sed cu vivendum contentiones. Debet evertitur philosophia eu vel, diam hendrerit ea his. Id dicam insolens reprimique eam. Error numquam repudiandae vix et, eu exerci conceptam per, ferri salutatus comprehensam eum id.
-                
-                Duis velit in eos, ut pri ornatus vivendo dissentiet. Wisi doming efficiendi cu ius, essent ceteros nec no. Altera appellantur no mea, wisi illum eu vix. An usu dico principes, pro quis sumo constituam ex.</p>
-        </div>
+                <div class="col">
+                    <label for="">Clinic: </label>
+                    <span>{{ $note->clinic }}</span>
+                </div>
 
-        <div class="col">
-            <label for="">Clinic</label>
-            <span></span>
-        </div>
-
-        <div class="col">
-            <label for="">Attend Date</label>
-            <span></span>
-        </div>
-
-    </div>
-   
+                <div class="col">
+                    <label for="">Attend Date: </label>
+                    <span>{{ $note->attend_date }}</span>
+                </div>
+            </div>
+            <br>
+        @endforeach
+            
+        @php
+            Session::forget('notes');
+        @endphp
+    @endif
+    
 @endsection

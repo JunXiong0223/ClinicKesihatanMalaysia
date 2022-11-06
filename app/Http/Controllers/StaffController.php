@@ -83,6 +83,7 @@ class StaffController extends Controller
                         -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
                         -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
                         -> where('appointments.staff_id', '=' ,Auth::guard('staff')->user()->id)
+                        -> where('appointments.attend_date', '=' ,date('Y-m-d'))
                         -> select('appointments.*', 'users.name as user_name', 'users.id as user_id', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
                         -> orderByRaw('appointments.attend_date ASC')
                         -> get();
@@ -155,7 +156,17 @@ class StaffController extends Controller
 
         //dd($user->user_id);
 
-        $note = HealthNote::where('user_id', $user->user_id)->get();
+        //$note = HealthNote::where('user_id', $user->user_id)->get();
+
+        $note = DB::table('health_notes')
+                -> join('users', 'health_notes.user_id', '=', 'users.id')
+                -> join('staff', 'health_notes.staff_id', '=', 'staff.id')
+                -> join('appointments', 'health_notes.appointment_id', '=', 'appointments.id')
+                -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
+                -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
+                -> where('health_notes.user_id', $user->user_id)
+                -> select('health_notes.note as note', 'users.name as user', 'staff.name as staff', 'clinics.name as clinic', 'appointments.attend_date', 'health_services.ServiceName')
+                -> get();
 
         //dd($note);
 
@@ -173,8 +184,9 @@ class StaffController extends Controller
         //dd($user->user_id);
 
         $infos = User::where('id', $user->user_id)->get();
+        
 
-        //dd($infos);
+        //dd($note);
 
         return redirect()->back()->with(['infos' => $infos]);
     }
