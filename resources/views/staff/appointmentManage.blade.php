@@ -118,56 +118,28 @@
                 </tbody>
             </table>
         </div>
-        <div class="col"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
-           
-            {{-- @include('staff.appointmentHealthNote') --}}
-
-            {{-- @if (session()->get('notes'))
-                @foreach (session()->get('notes') as $note)
-                    <label for="">User</label>{{$note->user_id}} <br>
-                    <label for="">Staff</label>{{$note->staff_id}} <br>
-                    <label for="">Note</label>{{$note->note}} <br> --}}
-
-                    {{-- <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
-                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
-                            <h2>{{$appointment->attend_date}}</h2><span style="font-size: 26px;">{{$appointment->ServiceTime}}</span>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-lg-4" style="margin-bottom: 6px; margin-top: 6px;">
-                            <h2>{{$appointment->clinic_name}}</h2><span style="font-size: 26px;">{{ $appointment->address }}</span>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
-                            <h2>Doctor</h2><span style="font-size: 26px;">{{ $appointment->name }}</span>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
-                            <h3>Health Service</h3><span style="font-size: 26px;">{{ $appointment->ServiceName }}</span>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-2 d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-bottom: 6px; margin-top: 6px;">
-                            <div class="btn-group d-flex d-sm-flex justify-content-center justify-content-sm-center" role="group">
-                                <button class="btn btn-primary" type="button" data-bs-target="#cancelAppointment{{$appointment->id}}" data-bs-toggle="modal">Cancel</button>
-                                <button class="btn btn-primary" type="button" data-bs-target="#updateAppointment{{$appointment->id}}" data-bs-toggle="modal">Update</button>
-                            </div>
-                        </div>
-                    </div> --}}
-                    {{-- <p>===============================================</p>
-                @endforeach
-
-                @php
-                     Session::forget('notes');
-                @endphp --}}
-
-                {{-- {{ session()->get('notes')->links() }} --}}
-            {{-- @endif --}}
-            
-        </div>
+        
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
             @if (session()->get('infos'))
                 @foreach (session()->get('infos') as $info)
-                    <label for="">Name</label>{{$info->name}} <br>
-                    {{-- <label for="">Telephone</label>{{$info->staff_id}} <br> --}}
-                    <label for="">Email</label>{{$info->email}} <br>
-
-                    <p>===============================================</p>
+                    <div class="row" style="box-shadow: 0px 0px 4px; border-radius: 5px; padding: 5px;">
+                        <div class="col-4">
+                            <label for="">Name: </label>{{$info->name}} <br>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Telephone: </label>{{$info->telephone_number}} <br>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Email: </label>{{$info->email}} <br>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Address: </label>{{$info->address}} <br>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Date of Birth</label>{{$info->DOB}} <br>
+                        </div>
+                    </div>
+                    <br>
                 @endforeach
 
                 @php
