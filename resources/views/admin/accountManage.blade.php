@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffImage">Staff Image</label>
-                    <input class="form-control" type="file" style="height: 38px;" value="{{ old('staffImage') }}" id="staffImage" name="staffImage">
+                    <input class="form-control-file" type="file" style="height: 38px;" value="{{ old('staffImage') }}" id="staffImage" name="staffImage">
                     @error('staffImage')
                        {{$message}}
                     @enderror
