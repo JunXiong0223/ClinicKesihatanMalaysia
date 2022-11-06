@@ -92,7 +92,7 @@ class ClinicController extends Controller
 
     public function show($clinicDetail)
     {
-        $clinics = Clinic::all()->where('name',$clinicDetail)->first();
+        $clinics = Clinic::where('id',$clinicDetail)->first();
 
         if($clinics == null)
         {

@@ -23,7 +23,7 @@
                     <div class="col" style="border-style: none;">
                         <div class="container" style="box-shadow: 0px 0px 6px 1px var(--bs-teal);padding-bottom: 5px;padding-top: 5px;">
                             <div class="row">
-                                <div class="col-md-12"><a href="{{ route('clinics.show', [ 'clinic' => $clinic['name'] ]) }}" style="color: var(--bs-gray-900);font-size: 40px;">{{$clinic['name']}}</a></div>
+                                <div class="col-md-12"><a href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}" style="color: var(--bs-gray-900);font-size: 40px;">{{$clinic['name']}}</a></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 d-md-flex d-lg-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xxl-center align-items-xxl-center">
@@ -46,8 +46,6 @@
                 
                                     <div class="carousel slide flex-fill" data-bs-ride="carousel" id="carousel-{{$corousel}}">
                                         <div class="carousel-inner">
-                                            {{-- <div class="carousel-item active"><img class="w-100 d-block" src="{{ asset($images[$counts[$i]]->url) }}" alt="Slide Image"></div>
-                                            <div class="carousel-item"><img class="w-100 d-block" src="{{ asset($images[$counts[$i]]->url) }}" alt="Slide Image"></div> --}}
                                             
                                             @for ($i = 0; $i < count($counts); $i++)
                                                 @if ($i == 0)
@@ -72,38 +70,48 @@
                                         </ol>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 ">
                                     <div>
                                         <div class="row">
-                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Telephone No</label></div>
-                                            <div class="col text-start d-xxl-flex">
-                                                <p class="text-break d-xxl-flex">{{$clinic['telephone_number']}}</p>
+                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
+                                                <label class="col-form-label">Telephone No</label>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="row">
-                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Start Hour</label></div>
-                                            <div class="col text-start d-xxl-flex">
-                                                <p class="text-break d-xxl-flex">{{$clinic['start_time']}}</p>
+                                            <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
+                                                <span>{{$clinic['telephone_number']}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">End Hour</label></div>
+                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
+                                                <label class="col-form-label">Start Hour</label>
+                                            </div>
                                             <div class="col text-start d-xxl-flex">
-                                                <p class="text-break d-xxl-flex">{{$clinic['end_time']}}</p>
+                                                <span class="text-break d-xxl-flex">{{$clinic['start_time']}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Address</label></div>
+                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
+                                                <label class="col-form-label">End Hour</label>
+                                            </div>
                                             <div class="col text-start d-xxl-flex">
-                                                <p class="text-break d-xxl-flex">{{$clinic['address']}}</p>
+                                                <span class="text-break d-xxl-flex">{{$clinic['end_time']}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col"><a class="btn btn-primary" role="button" href="{{ route('clinics.show', [ 'clinic' => $clinic['name'] ]) }}">More Details</a></div>
+                                            <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
+                                                <label class="col-form-label">Address</label>
+                                            </div>
+                                            <div class="col text-start d-xxl-flex">
+                                                <span class="text-break d-xxl-flex">{{$clinic['address']}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a class="btn btn-primary" role="button" href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}">More Details</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

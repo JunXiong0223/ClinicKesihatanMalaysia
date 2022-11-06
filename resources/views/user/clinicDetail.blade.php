@@ -72,32 +72,25 @@
                     <div class="col">
                         <div>
                             <div class="row">
-                                <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Telephone No</label></div>
-                                <div class="col text-start d-xxl-flex">
-                                    <p class="text-break d-xxl-flex">{{$clinicDetails['telephone_number']}}</p>
-                                </div>
+                                <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">Telephone No</label></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['telephone_number']}}</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">Start Hour</label></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['start_time']}}</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">End Hour</label></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['start_time']}}</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">Address</label></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['address']}}</span></div>
                             </div>
                             
-                            <div class="row">
-                                <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Start Hour</label></div>
-                                <div class="col text-start d-xxl-flex">
-                                    <p class="text-break d-xxl-flex">{{$clinicDetails['start_time']}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">End Hour</label></div>
-                                <div class="col text-start d-xxl-flex">
-                                    <p class="text-break d-xxl-flex">{{$clinicDetails['end_time']}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center"><label class="col-form-label">Address</label></div>
-                                <div class="col text-start d-xxl-flex">
-                                    <p class="text-break d-xxl-flex">{{$clinicDetails['address']}}</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <br>
                     <div class="col d-grid align-items-xxl-center">
                         <select class="float-start" style="height: 35px;margin-bottom: 12px;" id="service">
                             
@@ -146,8 +139,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
-                        {{-- <button class="btn btn-primary" type="submit" data-bs-target="#successful_appointment" data-bs-toggle="modal">Save</button> --}}
-                        {{-- <input id="user_id" type="text" value="" name="user_id" readonly> --}}
+                       
                         <input id="clinic_id" type="hidden" value="{{ $clinicDetails['id'] }}" name="clinic_id" readonly>
                         <input id="service_id" type="hidden" value="" name="service_id" readonly>
                         <input id="appointment_date" type="hidden" value="" name="appointment_date" readonly>
