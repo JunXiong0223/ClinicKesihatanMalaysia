@@ -3,13 +3,17 @@
 @section('js')
     <script type="text/javascript">
         // Pie Chart
+        const currentMonth = new Date();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
+            ['Services', 'Amount of Patient'],
             
             <?php
                 foreach($pies as $pie)
@@ -21,7 +25,7 @@
         ]);
 
         var options = {
-            title: 'Date'
+            title: 'Patients attend for services on '+months[currentMonth.getMonth() - 1]
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
