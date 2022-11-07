@@ -25,7 +25,7 @@ class HealthServiceController extends Controller
 
         $service->save();
 
-        return redirect()->route('admin.healthServiceList');
+        return redirect()->route('admin.healthServiceList')->with('success','Health Service add successful');
     }
 
     public function update()
@@ -40,6 +40,6 @@ class HealthServiceController extends Controller
         
         $clinic->save();
 
-        return redirect()->route('admin.healthServiceList');
+        return redirect()->route('admin.healthServiceList')->with('success','Health Service update successful');
     }
 }

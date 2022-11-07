@@ -58,7 +58,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    @if ($appointment->status == "Cancel")
+                                    @if ($appointment->status == "Cancel" || $appointment->attendance == 1)
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $appointment->id }}" disabled>Update</button>
                                     @else
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $appointment->id }}">Update</button>
@@ -77,23 +77,26 @@
                                                             
                                                             <div class="row"> 
                                                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
-                                                                    <div class="form-group">
+                                                                    
                                                                         @if ($appointment->attendance == 1)
-                                                                        <input type="checkbox" class="form-check-input" id="attend" name="attend" value="0" checked disabled>
+                                                                            <input type="checkbox"  id="attend" name="attend" value="0" checked disabled>
                                                                         @else
-                                                                            <input type="checkbox" class="form-check-input" id="attend" name="attend" value="1">
+                                                                            <input type="checkbox"  id="attend" name="attend" value="1">
                                                                         @endif
-                                                                        <label for="attend" class="form-check-label"> Attend</label>
-                                                                    </div>
+                                                                        <label for="attend" > Attend</label>
+                                                                    
                                                                 </div>  
                                                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">   
-                                                                    <div class="form-group">
+                                                                    
                                                                         <label for="status"> Status</label>
-                                                                        <select name="status" class="form-control" id="status">
-                                                                            <option value="NA">  </option>
-                                                                            <option value="a"> a </option>
+                                                                        <select name="status"  id="status" required>
+                                                                            <option value="NA" selected disabled> Select a status </option>
+                                                                            <option value="Minor"> Minor </option>
+                                                                            <option value="Medium"> Medium </option>
+                                                                            <option value="Attention"> Attention </option>
+                                                                            <option value="Serious"> Serious </option>
                                                                         </select>
-                                                                    </div>
+                                                                    
                                                                 </div>  
                                                             </div>
                                                             
@@ -163,6 +166,11 @@
                 <div class="col">
                     <label for="">Service: </label>
                     <span>{{ $note->ServiceName }}</span>
+                </div>
+
+                <div class="col">
+                    <label for="">Status: </label>
+                    <span>{{ $note->status }}</span>
                 </div>
 
                 <div class="col-12 text-justify d-xl-flex align-items-xl-center">

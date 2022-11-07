@@ -165,7 +165,7 @@ class StaffController extends Controller
                 -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
                 -> join('clinics', 'appointments.clinic_id', '=', 'clinics.id')
                 -> where('health_notes.user_id', $user->user_id)
-                -> select('health_notes.note as note', 'users.name as user', 'staff.name as staff', 'clinics.name as clinic', 'appointments.attend_date', 'health_services.ServiceName')
+                -> select('health_notes.note as note', 'users.name as user', 'staff.name as staff', 'clinics.name as clinic', 'appointments.attend_date','appointments.status', 'health_services.ServiceName')
                 -> orderBy('health_notes.created_at', 'desc')
                 -> get();
 

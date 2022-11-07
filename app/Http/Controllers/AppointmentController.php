@@ -164,7 +164,7 @@ class AppointmentController extends Controller
 
         $appointment->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Your appointment has been cancel');
     }
 
     public function updateAppointment(Request $req)
@@ -211,7 +211,7 @@ class AppointmentController extends Controller
         $appointment-> staff_id = $selected_staff;
 
         if ($appointment-> save()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Your new appointment has been updated');
         }
 
         return abort(404);

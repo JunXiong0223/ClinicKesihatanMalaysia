@@ -35,7 +35,7 @@ class ClinicController extends Controller
         
         $clinic->save();
 
-        return redirect()->route('admin.clinics');
+        return redirect()->route('admin.clinics')->with('success', 'Update clinic successfully');
     }
 
     public function store(Request $req)
@@ -87,7 +87,7 @@ class ClinicController extends Controller
             }
         }
         
-        return redirect()->route('admin.clinics');
+        return redirect()->route('admin.clinics')-with('success', 'Clinic add successfully');
     }
 
     public function show($clinicDetail)
