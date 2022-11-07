@@ -1,30 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    @if (Session::has('success'))
-        
-        <div class="alert alert-success text-break alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('success') }}</span>
-        </div>
-        {{ Session::forget('success') }}
-    @endif
-    @if (Session::has('failed'))
-        
-        <div class="alert alert-success text-break alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('failed') }}</span>
-        </div>
-        {{ Session::forget('failed') }}
-    @endif
-    @if (Session::has('error'))
-        
-        <div class="alert alert-success text-break alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('error') }}</span>
-        </div>
-        {{ Session::forget('error') }}
-    @endif
+    
     <div class="row">
         <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
             <h1 class="d-xl-flex justify-content-xl-center align-items-xl-center" style="font-size: 59px;">Patient Appointment</h1>
@@ -44,7 +21,6 @@
                         <th>Attendance</th>
                         <th>Status</th>
                         <th>Mail</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,14 +89,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                </td>
-                                <td>
-                                    @if ($appointment->status == "Cancel")
-                                        <button disabled>Update</button>
-                                    @else
-                                        <button>Update</button>
-                                    @endif
                                     
                                 </td>
                                 

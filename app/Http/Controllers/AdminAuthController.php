@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Staff;
 use App\Models\Clinic;
 use Illuminate\Support\Facades\DB;
@@ -69,6 +71,23 @@ class AdminAuthController extends Controller
         return redirect()
             ->back()
             ->with('error', 'Invalid Credentials');
+    }
+
+    public function resetpassword(Request $req)
+    {
+        $admin = Admin::findOrFail(Auth::guard('admin')->user()->id);
+        //dd($admin);
+
+        if ($req->input('password') != $req->input('re-password')) {
+            return redirect()->back()->with('failed', 'Password not match');
+        }
+        
+        $admin->password = Hash::make($req->input('password'));
+
+        $admin->save();
+
+        return redirect()->back()->with('success', 'Password has successful update');
+
     }
 
     public function logout()

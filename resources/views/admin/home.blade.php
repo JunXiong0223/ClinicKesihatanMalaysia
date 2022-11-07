@@ -69,10 +69,6 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
-            <p><br>List of staff<br><br></p>
-            <button onclick="remind()" id="press">press</button>
-        </div>
         <div class="row" style="box-shadow: 0px 0px 20px 1px; border-radius: 10px;">
             <div class="col-9 d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex flex-fill justify-content-center justify-content-sm-center justify-content-md-center align-items-md-center justify-content-lg-center" style="margin-top: 5px;margin-bottom: 5px;">
                 <div id="piechart" class="d-sm-flex flex-fill justify-content-sm-center align-items-sm-center" style="width: 100%; height: 100%; padding: 10px;">

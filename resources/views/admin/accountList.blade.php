@@ -11,7 +11,6 @@
         <table id="table_id" class="display">
             <thead>
                 <tr>
-                    <th>Staff Image</th>
                     <th>Staff Name</th>
                     <th>Staff Email</th>
                     <th>Staff Address</th>
@@ -30,7 +29,6 @@
                
                 @foreach ($staffs as $staff)
                 <tr>
-                    <td>Staff Image</td>
                     <td>{{ $staff->name }}</td>
                     <td>{{ $staff->email }}</td>
                     <td>Staff Address</td>

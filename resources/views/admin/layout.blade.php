@@ -100,13 +100,33 @@
             </a>
         </li>
         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">Settings</span><i class="fas fa-caret-down float-none float-lg-right fa-sm"></i></a>
-            <div class="dropdown-menu border-0 animated fadeIn"><a class="dropdown-item text-white" href="#"><span>Change password</span></a><a class="dropdown-item text-white" href="#"><span>Change email</span></a><a class="dropdown-item text-white" href="#"><span>More</span></a></div>
+            <div class="dropdown-menu border-0 animated fadeIn"><a class="dropdown-item text-white" href="{{ route('admin.resetpassword') }}"><span>Change password</span></a><a class="dropdown-item text-white" href="#"><span>Change email</span></a><a class="dropdown-item text-white" href="#"><span>More</span></a></div>
         </li>
         
         <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{{ route('admin.logout') }}"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
     </ul>
     <div class="container article-clean">
-
+        @if (Session::has('success'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('success') }}</span>
+            </div>
+            {{ Session::forget('success') }}
+        @endif
+        @if (Session::has('failed'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('failed') }}</span>
+            </div>
+            {{ Session::forget('failed') }}
+        @endif
+        @if (Session::has('error'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('error') }}</span>
+            </div>
+            {{ Session::forget('error') }}
+        @endif
         @yield('content')
         
     </div>

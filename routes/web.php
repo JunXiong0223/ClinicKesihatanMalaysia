@@ -116,6 +116,11 @@ Route::post('admin/login', [AdminAuthController::class, 'handleLogin'])
     ->name('admin.handleLogin');
 Route::get('admin/logout', [AdminAuthController::class, 'logout'])
     ->name('admin.logout');
+Route::get('admin/resetpassword', function(){
+    return view('admin.resetpassword');
+})->name('admin.resetpassword');   
+Route::post('admin/resetpassword', [AdminAuthController::class, 'resetpassword'])
+    ->name('admin.handleresetpassword');
 Route::get('admin/clinicManage', [ClinicController::class, 'create'])
     ->name('admin.clinicManage');
 Route::get('admin/clinics', [ClinicController::class, 'index'])
