@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Staff;
 
 class StaffAuthController extends Controller
 {
@@ -38,6 +40,23 @@ class StaffAuthController extends Controller
     public function login()
     {
         return view('staff.login');
+    }
+
+    public function resetpassword(Request $req)
+    {
+        $staff = Staff::findOrFail(Auth::guard('staff')->user()->id);
+        //dd($staff);
+
+        if ($req->input('password') != $req->input('re-password')) {
+            return redirect()->back()->with('failed', 'Password not match');
+        }
+        
+        $staff->password = Hash::make($req->input('password'));
+
+        $staff->save();
+
+        return redirect()->back()->with('success', 'Password has successful update');
+
     }
 
     public function handleLogin(Request $req)

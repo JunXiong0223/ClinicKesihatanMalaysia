@@ -164,6 +164,11 @@ Route::post('staff/login', [StaffAuthController::class, 'handleLogin'])
     ->name('staff.handleLogin');
 Route::get('staff/logout', [StaffAuthController::class, 'logout'])
     ->name('staff.logout');
+Route::get('staff/resetpassword', function(){
+        return view('staff.resetpassword');
+    })->name('staff.resetpassword');   
+Route::post('staff/resetpassword', [StaffAuthController::class, 'resetpassword'])
+        ->name('staff.handleresetpassword');
 Route::get('staff/schedule', [StaffController::class, 'schedule'])
     ->name('staff.schedule');
 Route::post('staff/schedule', [StaffController::class, 'update'])
