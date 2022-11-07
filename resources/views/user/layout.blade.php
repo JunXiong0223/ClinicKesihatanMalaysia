@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{url('assetsUser/css/Article-List.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/Contact-Form-Clean.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/Footer-Clean.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="{{url('assetsUser/css/Login-Form-Clean.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/Login-Form-Dark.css')}}">
     <link rel="stylesheet" href="{{url('assetsUser/css/Navigation-Clean.css')}}">
@@ -177,7 +178,8 @@
     
 
     <script src="{{url('assetsUser/bootstrap/js/bootstrap.min.js')}}"></script> 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{{url('assetsUser/js/bs-init.js')}}"></script>
     @yield('js')
 
 </body>
