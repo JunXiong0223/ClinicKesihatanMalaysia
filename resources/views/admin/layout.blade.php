@@ -39,7 +39,6 @@
             <div class="dropdown-menu border-0 animated fadeIn">
                 <a class="dropdown-item text-white" href="{{ route('admin.staffList') }}"><span>Staff List</span></a>
                 <a class="dropdown-item text-white" href="{{ route('admin.createStaff') }}"><span>Create Staff</span></a>
-                <a class="dropdown-item text-white" href="#"><span>More</span></a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -53,9 +52,6 @@
                 </a>
                 <a class="dropdown-item text-white" href="{{ route('admin.clinicManage') }}">
                     <span>Clinic Create</span>
-                </a>
-                <a class="dropdown-item text-white" href="#">
-                    <span>More</span>
                 </a>
             </div>
         </li>
@@ -71,9 +67,6 @@
                 <a class="dropdown-item text-white" href="{{ route('admin.healthServiceManage') }}">
                     <span>Healthcare Services Create</span>
                 </a>
-                <a class="dropdown-item text-white" href="#">
-                    <span>More</span>
-                </a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -87,9 +80,6 @@
                 </a>
                 <a class="dropdown-item text-white" href="{{ route('admin.timeSlotManage') }}">
                     <span>Service Time Slot Create</span>
-                </a>
-                <a class="dropdown-item text-white" href="#">
-                    <span>More</span>
                 </a>
             </div>
         </li>

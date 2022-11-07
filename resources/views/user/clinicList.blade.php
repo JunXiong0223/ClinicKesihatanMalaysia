@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <a class="btn btn-primary" role="button" href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}">More Details</a>
+                                                <a class="btn btn-light" role="button" href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}">More Details</a>
                                             </div>
                                         </div>
                                     </div>

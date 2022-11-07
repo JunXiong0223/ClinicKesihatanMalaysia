@@ -24,7 +24,7 @@
                     @if (count($clinics) > 0)
                         @foreach ($clinics as $clinic)
                             <tr>
-                                <td><a href="{{ route('clinics.show', [ 'clinic' => $clinic['name'] ]) }}" style="color: var(--bs-gray-900);">{{$clinic['name']}}</a></td>
+                                <td><a href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}" style="color: var(--bs-gray-900);">{{$clinic['name']}}</a></td>
                                 <td>{{$clinic['address']}}</td>
                                 <td>{{$clinic['telephone_number']}}</td>
                                 <td>{{$clinic['start_time']}}</td>

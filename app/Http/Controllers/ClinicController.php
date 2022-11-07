@@ -87,7 +87,7 @@ class ClinicController extends Controller
             }
         }
         
-        return redirect()->route('admin.clinics')-with('success', 'Clinic add successfully');
+        return redirect()->route('admin.clinics')->with('success', 'Clinic add successfully');
     }
 
     public function show($clinicDetail)

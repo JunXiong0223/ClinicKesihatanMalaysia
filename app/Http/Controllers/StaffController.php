@@ -34,6 +34,8 @@ class StaffController extends Controller
         $staff-> name = $req->input('staffName');
         $staff-> email = $req->input('staffEmail');
         $staff-> password = Hash::make($req->input('staffPassword'));
+        $staff-> DOB = $req->input('staffDOB');
+        $staff-> address = $req->input('staffAddress');
 
         $staff->save();
 
@@ -140,7 +142,7 @@ class StaffController extends Controller
             $staff->name = $req->input('NameUpdate');
         }
         
-        if($staff->save() && $clinic_staff == 1)
+        if($staff->save() || $clinic_staff == 1)
         {
             return redirect()->back();
         }

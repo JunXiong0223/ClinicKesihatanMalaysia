@@ -139,7 +139,8 @@
                             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
                             <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                             <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
+                            {{-- <a class="forgot" href="#">Forgot your email or password?</a> --}}
                         </form>
                     </section>
                 </div>
@@ -156,28 +157,28 @@
                                 @csrf
                                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
                                 <div class="mb-3">
-                                    <input class="form-control" type="email" name="email" placeholder="Email">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
                                     @error('email')
                                     {{$message}}
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Name" name="name">
+                                    <input class="form-control" type="text" placeholder="Name" name="name" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="password" name="password" placeholder="Password">
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)">
+                                    <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Telephone No">
+                                    <input class="form-control" type="text" placeholder="Telephone No" required minlength="11">
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Date of Birth">
+                                    <input class="form-control" type="date" placeholder="Date of Birth" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Address">
+                                    <input class="form-control" type="text" placeholder="Address" required>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-check">

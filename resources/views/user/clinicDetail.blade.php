@@ -120,7 +120,7 @@
                         <input type="hidden" value="{{ $clinicDetails['id'] }}" id="clinicId" readonly>
 
                         {{-- <button class="btn btn-primary" type="button" data-bs-target="#make_appointment" data-bs-toggle="modal" id="appointment">Make Appointment</button> --}}
-                        <button class="btn btn-primary" type="button" id="appointment">Make Appointment</button>
+                        <button class="btn btn-success" type="button" id="appointment">Make Appointment</button>
                     </div>
                 </div>
             </div>

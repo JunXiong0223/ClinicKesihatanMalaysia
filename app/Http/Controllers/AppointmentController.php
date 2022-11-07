@@ -20,6 +20,7 @@ class AppointmentController extends Controller
                         -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
                         -> join('time_slots', 'appointments.attend_time', '=', 'time_slots.id')
                         -> select('appointments.*', 'users.name as user_name', 'users.email as user_email', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
+                        -> where('appointments.attend_date', '>=' ,date('Y-m-d'))
                         -> orderByRaw('appointments.attend_date ASC')
                         -> get();
 
