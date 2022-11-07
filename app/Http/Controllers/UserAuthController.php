@@ -78,4 +78,22 @@ class UserAuthController extends Controller
 
         return redirect()->route('user.home');
     }
+
+    public function resetpassword(Request $req)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        //dd($user);
+
+        if ($req->input('newpassword') != $req->input('repassword')) {
+            return redirect()->back()->with('failed', 'Password not match');
+        }
+        
+        $user->password = Hash::make($req->input('newpassword'));
+
+        $user->save();
+
+        return redirect()->route('user.home')->with('success', 'Password has successful update');
+
+    }
+
 }

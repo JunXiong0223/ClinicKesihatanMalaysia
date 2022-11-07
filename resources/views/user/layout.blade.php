@@ -69,8 +69,29 @@
         </div>
 
         {{Session::forget('message')}}
-
+        
     @endif
+    @if (Session::has('success'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('success') }}</span>
+            </div>
+            {{ Session::forget('success') }}
+        @endif
+        @if (Session::has('failed'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('failed') }}</span>
+            </div>
+            {{ Session::forget('failed') }}
+        @endif
+        @if (Session::has('error'))
+            <div class="alert alert-success text-break alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span class="text-break d-xl-flex justify-content-xl-center"><strong>Alert</strong> {{ Session::get('error') }}</span>
+            </div>
+            {{ Session::forget('error') }}
+        @endif
 
     @yield('content')
     

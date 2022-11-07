@@ -105,6 +105,8 @@ Route::post('/create', [UserAuthController::class, 'store'])
 Route::get('/resetPassword', function(){
         return view('user.resetPassword');
     })->name('user.resetPassword');
+Route::post('/resetpassword', [UserAuthController::class, 'resetpassword'])
+    ->name('user.handleresetpassword');
 
 //admin
 Route::get('admin/', [AdminAuthController::class, 'index'])
