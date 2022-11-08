@@ -96,4 +96,36 @@ class UserAuthController extends Controller
 
     }
 
+    public function update(Request $req)
+    {
+        if ($req == null) {
+            return redirect()->back()->with('success', 'No Update Make');
+        }
+        
+        $user = User::findOrFail(Auth::user()->id);
+
+        //dd($req->input('name'));
+
+        if ($req->input('name') != null) {
+            $user->name = $req->input('name');
+        }
+
+        if ($req->input('teleNo') != null) {
+            $user->telephone_number = $req->input('name');
+        }
+
+        if ($req->input('DOB') != null) {
+            $user->DOB = $req->input('DOB');
+        }
+
+        if ($req->input('address') != null) {
+            $user->address = $req->input('address');
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Update profile Successful');
+
+    }
+
 }

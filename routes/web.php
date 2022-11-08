@@ -86,7 +86,8 @@ Route::get('/', [UserAuthController::class, 'index'])
 
 Route::resource('user', UserAuthController::class)
     ->middleware('auth:web');
-
+Route::post('user/update', [UserAuthController::class, 'update'])
+    ->name('user.update');
 Route::get('/appointment', [AppointmentController::class, 'viewAppointment'])
     ->name('user.appointment')
     ->middleware('auth:web');
