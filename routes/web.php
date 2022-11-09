@@ -146,8 +146,8 @@ Route::post('admin/healthServiceCreate',[HealthServiceController::class, 'store'
     ->name('admin.healthServiceCreate');
 Route::get('admin/timeSlotList', [TimeSlotController::class, 'index'])
     ->name('admin.timeSlotList');
-Route::get('admin/timeSlotManage', [TimeSlotController::class, 'create'])
-    ->name('admin.timeSlotManage');
+Route::post('admin/timeSlotUpdate', [TimeSlotController::class, 'update'])
+    ->name('admin.timeSlotUpdate');
 Route::post('admin/timeSlotCreate',[TimeSlotController::class, 'store'])
     ->name('admin.timeSlotCreate');
 Route::get('admin/appointment', [AppointmentController::class, 'index'])

@@ -30,8 +30,29 @@ class TimeSlotController extends Controller
 
         $timeslot -> ServiceTime = $req->input('clinicTimeSlot');
 
+        $timeslot -> is_deleted = 0;
+
         $timeslot->save();
 
-        return redirect()->route('admin.timeSlotManage');
+        return redirect()->back()->with('success','Time Slot Create Successful');
+    }
+
+    public function update(Request $req)
+    {
+        $timeslot = TimeSlot::findOrFail($req->input('service_id'));
+
+        if ($req->input('timeSlotUpdate') != null) {
+            $timeslot->ServiceTime = $req->input('timeSlotUpdate');
+        }
+
+        if ($req->input('status') != null) {
+            $timeslot->is_deleted = $req->input('status');
+        }
+        
+        //dd($req->input('status'));
+
+        $timeslot->save();
+
+        return redirect()->back()->with('success','Time Slot update successful');
     }
 }

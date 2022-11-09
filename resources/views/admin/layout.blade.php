@@ -78,9 +78,9 @@
                 <a class="dropdown-item text-white" href="{{ route('admin.timeSlotList') }}">
                     <span>Service Time Slot Manage</span>
                 </a>
-                <a class="dropdown-item text-white" href="{{ route('admin.timeSlotManage') }}">
+                {{-- <a class="dropdown-item text-white" href="{{ route('admin.timeSlotManage') }}">
                     <span>Service Time Slot Create</span>
-                </a>
+                </a> --}}
             </div>
         </li>
         <li class="nav-item">
