@@ -35,7 +35,7 @@
                 </div>
                 <div class="row" style="margin-bottom: 25px;">
                     <div class="col-2"><label class="col-form-label">Address</label></div>
-                    <div class="col"><input class="form-control" id="address" name="address" type="text" disabled minlength="20"></div>
+                    <div class="col"><input class="form-control" id="address" name="address" value="{{ $profiles['address'] }}" type="text" disabled minlength="20"></div>
                 </div>
                 <button class="btn btn-primary float-end" style="display: none;" id="submit" type="submit">Done</button>
             </form>

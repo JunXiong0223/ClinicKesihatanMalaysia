@@ -69,8 +69,24 @@ class UserAuthController extends Controller
         $user->name = strip_tags($req->input('name'));
 
         $user->email = strip_tags($req->input('email'));
+
+        if ($req->input('password') != $req->input('password-repeat')) {
+            return redirect()->back()->with('error', 'Password not match');
+        }
         
         $user->password = strip_tags(Hash::make($req->input('password')));
+
+        if ($req->input('telephone_number') != null) {
+            $user->telephone_number = $req->input('telephone_number');
+        }
+
+        if ($req->input('DOB') != null) {
+            $user->DOB = $req->input('DOB');
+        }
+
+        if ($req->input('address') != null) {
+            $user->address = $req->input('address');
+        }
 
         if ($user->save()) {
             (new MailerController)->registerSuccess($req);
@@ -111,7 +127,7 @@ class UserAuthController extends Controller
         }
 
         if ($req->input('teleNo') != null) {
-            $user->telephone_number = $req->input('name');
+            $user->telephone_number = $req->input('teleNo');
         }
 
         if ($req->input('DOB') != null) {

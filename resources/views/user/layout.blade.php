@@ -172,13 +172,13 @@
                                     <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Telephone No" required minlength="11">
+                                    <input class="form-control" type="text" name="telephone_number" placeholder="Telephone No" required minlength="11">
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="date" placeholder="Date of Birth" required>
+                                    <input class="form-control" type="date" name="DOB" placeholder="Date of Birth" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" placeholder="Address" required>
+                                    <input class="form-control" type="text" name="address" placeholder="Address" required>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-check">

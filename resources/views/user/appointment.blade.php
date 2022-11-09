@@ -8,7 +8,7 @@
                     <div class="col">
                         <h1>Appointment History</h1>
                     </div>
-                    <div class="col d-flex d-sm-flex d-md-flex d-xl-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-end align-items-md-center justify-content-xl-end align-items-xl-center"><button class="btn btn-primary float-end" type="button">Button</button></div>
+                    
                 </div>
             </div>
             <div class="col">
@@ -20,8 +20,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" role="tabpanel" id="tab-1">
-                            <p>Content for tab 1.</p>
-                            @if ($upcoming_appointments != null)
+                            @if (count($upcoming_appointments) > 0)
                                 @foreach ($upcoming_appointments as $appointment)
                                     <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
                                         <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
@@ -113,13 +112,16 @@
                                     <br>
                                 @endforeach
                             @else
-                                
+                                <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
+                                    <div class="col text-center" style="margin-bottom: 6px; margin-top: 6px;">
+                                        <h1>No Appointment Maked</h1>
+                                    </div>
+                                </div>
                             @endif
                             
                         </div>
                         <div class="tab-pane fade" role="tabpanel" id="tab-2">
-                            <p>Content for tab 2.</p>
-                            @if ($attend_appointments != null)
+                            @if (count($attend_appointments) > 0)
                                 @foreach ($attend_appointments as $appointment)
                                     <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
                                         <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
@@ -141,13 +143,16 @@
                                     <br>
                                 @endforeach
                             @else
-                                
+                                <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
+                                    <div class="col text-center" style="margin-bottom: 6px; margin-top: 6px;">
+                                        <h1>Not Attend an Appointment Before</h1>
+                                    </div>
+                                </div>
                             @endif
                             
                         </div>
                         <div class="tab-pane fade" role="tabpanel" id="tab-3">
-                            <p>Content for tab 3.</p>
-                            @if ($cancel_appointments != null)
+                            @if (count($cancel_appointments) > 0 )
                                 @foreach ($cancel_appointments as $appointment)
                                     <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
                                         <div class="col-sm-12 col-md-3 col-lg-2" style="margin-bottom: 6px; margin-top: 6px;">
@@ -169,7 +174,11 @@
                                     <br>
                                 @endforeach
                             @else
-                                
+                                <div class="row" style="border-radius: 11px;box-shadow: 0px 0px 3px;">
+                                    <div class="col text-center" style="margin-bottom: 6px; margin-top: 6px;">
+                                        <h1>Not Cancel Appointment Before</h1>
+                                    </div>
+                                </div>
                             @endif
                            
                         </div>
@@ -178,17 +187,5 @@
             </div>
         </div>
     </div>
-    {{-- <div class="d-xl-flex justify-content-xl-center" style="margin-top: 20px;">
-        <nav>
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-            </ul>
-        </nav>
-    </div> --}}
+    
 @endsection

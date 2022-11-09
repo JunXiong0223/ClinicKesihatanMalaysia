@@ -84,7 +84,7 @@
                                             <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
                                                 <label class="col-form-label">Start Hour</label>
                                             </div>
-                                            <div class="col text-start d-xxl-flex">
+                                            <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
                                                 <span class="text-break d-xxl-flex">{{$clinic['start_time']}}</span>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                             <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
                                                 <label class="col-form-label">End Hour</label>
                                             </div>
-                                            <div class="col text-start d-xxl-flex">
+                                            <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
                                                 <span class="text-break d-xxl-flex">{{$clinic['end_time']}}</span>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                             <div class="col-3 d-flex d-xl-flex justify-content-start align-items-center justify-content-xl-start align-items-xl-center">
                                                 <label class="col-form-label">Address</label>
                                             </div>
-                                            <div class="col text-start d-xxl-flex">
+                                            <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
                                                 <span class="text-break d-xxl-flex">{{$clinic['address']}}</span>
                                             </div>
                                         </div>
