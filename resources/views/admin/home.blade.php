@@ -39,24 +39,31 @@
 
         function drawMaterial() {
             var data = google.visualization.arrayToDataTable([
-                ['Service', 'Last Month', 'This Month'],
-                ['Service 1', 100, 120],
-                ['Service 2', 80, 140],
-                ['Service 3', 150, 70],
-                ['Service 4', 160, 50],
-                ['Service 5', 200, 300]
+                ['Health Service', months[currentMonth.getMonth() - 1], months[currentMonth.getMonth()]],
+
+                <?php
+                    foreach($pies as $pie)
+                    {
+                        foreach($lines as $line)
+                        {
+                            if ($pie->ServiceName == $line->ServiceName) {
+                                echo "['".$pie->ServiceName."',".$pie->val.",".$line->val."],";
+                            }
+                        }
+                    }
+                ?>
             ]);
 
             var materialOptions = {
                 chart: {
-                title: 'Population of Largest U.S. Cities'
+                title: 'Number of Health Service Maked'
                 },
                 hAxis: {
-                title: 'Total Population',
+                title: 'Total Health Service',
                 minValue: 0,
                 },
                 vAxis: {
-                title: 'City'
+                title: 'Health Service'
                 },
                 bars: 'horizontal'
             };
