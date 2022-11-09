@@ -77,8 +77,8 @@
                                                             
                                                         </div>
                                                         
-                                                        <input type="text" id="userEmail" name="userEmail" value="{{ $appointment->user_email }}" readonly>
-                                                        <input type="text" id="userName" name="userName" value="{{ $appointment->user_name }}" readonly>
+                                                        <input type="hidden" id="userEmail" name="userEmail" value="{{ $appointment->user_email }}" readonly>
+                                                        <input type="hidden" id="userName" name="userName" value="{{ $appointment->user_name }}" readonly>
 
                                                     </div>
                                                     <div class="modal-footer">

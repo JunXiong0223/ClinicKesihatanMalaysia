@@ -64,9 +64,9 @@
                 <a class="dropdown-item text-white" href="{{ route('admin.healthServiceList') }}">
                     <span>Healthcare Services Manage</span>
                 </a>
-                <a class="dropdown-item text-white" href="{{ route('admin.healthServiceManage') }}">
+                {{-- <a class="dropdown-item text-white" href="{{ route('admin.healthServiceManage') }}">
                     <span>Healthcare Services Create</span>
-                </a>
+                </a> --}}
             </div>
         </li>
         <li class="nav-item dropdown">

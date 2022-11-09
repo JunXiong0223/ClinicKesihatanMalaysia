@@ -96,7 +96,9 @@
                             
                             <option value="none" selected disabled hidden>Select s Service</option>
                             @foreach ($services as $service)
-                                <option value="{{ $service['id'] }}">{{ $service['ServiceName'] }}</option>
+                                @if ($service['is_deleted'] == 0)
+                                    <option value="{{ $service['id'] }}">{{ $service['ServiceName'] }}</option>
+                                @endif
                             @endforeach
                                 
                         </select>

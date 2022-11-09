@@ -140,8 +140,8 @@ Route::get('admin/staffs', [StaffController::class, 'staffList'])
     ->name('admin.staffList');
 Route::get('admin/healthServiceList', [HealthServiceController::class, 'index'])
     ->name('admin.healthServiceList');
-Route::get('admin/healthServiceManage', [HealthServiceController::class, 'create'])
-    ->name('admin.healthServiceManage');
+Route::post('admin/healthServiceUpdate', [HealthServiceController::class, 'update'])
+    ->name('admin.healthServiceUpdate');
 Route::post('admin/healthServiceCreate',[HealthServiceController::class, 'store'])
     ->name('admin.healthServiceCreate');
 Route::get('admin/timeSlotList', [TimeSlotController::class, 'index'])

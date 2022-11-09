@@ -8,8 +8,30 @@
     </div>
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
+            <form method="post" action="{{ route('admin.healthServiceCreate') }}">
+                @csrf
+                <div class="form-group">
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="serviceName">Health Service Name</label>
+                    <input class="form-control" type="text" style="height: 38px;" value="{{ old('serviceName') }}" id="serviceName" name="serviceName">
+                    @error('serviceName')
+                       {{$message}}
+                    @enderror
+                </div>
+                
+                <div class="form-group d-flex d-xl-flex justify-content-sm-center align-items-sm-center justify-content-xl-center">
+                    <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
+                        <button class="btn btn-danger flex-fill" type="button">Reset</button>
+                    </div>
+                    <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
+                        <button class="btn btn-success d-flex flex-fill justify-content-center justify-content-xl-center" type="submit">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
             
-          
             <table id="table_id" class="display">
                 <thead>
                     <tr>
@@ -22,7 +44,13 @@
                     @foreach ($services as $service)
                         <tr>   
                             <td>{{ $service['ServiceName'] }}</td>
-                            <td>Na</td>
+                            <td>
+                                @if ($service['is_deleted'] == 0)
+                                    Show
+                                @else
+                                    Hide
+                                @endif
+                            </td>
                             <td>
                                 <button style="all: unset; cursor: pointer;" data-toggle="modal" data-target="#serviceModal{{$service['id']}}">    
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -39,27 +67,21 @@
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form action="" method="POST">
+                                            <form action="{{ route('admin.healthServiceUpdate') }}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="NameUpdate">Name</label>
-                                                        <input type="text" class="form-control" id="NameUpdate" name="NameUpdate" aria-describedby="emailHelp" placeholder="">
-                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="AddressUpdate">Address</label>
-                                                        <input type="text" class="form-control" id="AddressUpdate" name="AddressUpdate" placeholder="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="TeleUpdate">Staff Telephone No.</label>
-                                                        <input type="password" class="form-control" id="TeleUpdate" name="TeleUpdate" placeholder="">
+                                                        <input type="text" class="form-control" id="NameUpdate" name="NameUpdate" placeholder="{{ $service['ServiceName'] }}">
                                                     </div>
                                                     
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="status">Status</label>
+                                                        <select class="form-control" name="status" id="status">
+                                                          <option value="0">Show</option>
+                                                          <option value="1">Hide</option>
+                                                        </select>
+                                                      </div>
             
                                                     <input type="text" name="service_id" id="service_id" value="{{$service['id']}}" required readonly>
                                                 </div>

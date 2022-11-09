@@ -23,23 +23,29 @@ class HealthServiceController extends Controller
 
         $service-> ServiceName = $req->input('serviceName');
 
+        $service-> is_deleted = 0;
+
         $service->save();
 
         return redirect()->route('admin.healthServiceList')->with('success','Health Service add successful');
     }
 
-    public function update()
+    public function update(Request $req)
     {
-        $req -> validate([
-            'clinic_id' => 'required',
-        ]);
+        $healthService = HealthService::findOrFail($req->input('service_id'));
 
-        $clinic = HealthService::findOrFail($req->input('clinic_id'));
+        if ($req->input('NameUpdate') != null) {
+            $healthService->ServiceName = $req->input('NameUpdate');
+        }
 
-        //$clinic->name = strip_tags($req->input('clinicName'));
+        if ($req->input('status') != null) {
+            $healthService->is_deleted = $req->input('status');
+        }
         
-        $clinic->save();
+        //dd($req->input('status'));
 
-        return redirect()->route('admin.healthServiceList')->with('success','Health Service update successful');
+        $healthService->save();
+
+        return redirect()->back()->with('success','Health Service update successful');
     }
 }
