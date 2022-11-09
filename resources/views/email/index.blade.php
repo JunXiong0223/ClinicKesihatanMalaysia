@@ -8,10 +8,11 @@
 </head>
 <body>
     <h3>Health Care Centre</h3>
-    @php
-        //dd( $data );
-    @endphp
+
     <h2>Hi {{$data['user']}},</h2>
     <p>{{ $data['body'] }}</p>
+
+    <h3>Regard,</h3>
+    <h3>Health Care Center</h3>
 </body>
 </html>
