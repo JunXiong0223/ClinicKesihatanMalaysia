@@ -31,11 +31,39 @@ class ClinicController extends Controller
 
         $clinic = Clinic::findOrFail($req->input('clinic_id'));
 
+        if ($req->input('NameUpdate') != null) {
+            $clinic-> name = $req->input('NameUpdate');
+        }
+
+        if ($req->input('AddressUpdate') != null) {
+            $clinic-> address = $req->input('AddressUpdate');
+        }
+
+        if ($req->input('TeleUpdate') != null) {
+            $clinic-> telephone_number = $req->input('TeleUpdate');
+        }
+
+        if ($req->input('clinicStartOperationTime') != null) {
+            $clinic-> start_time = $req->input('clinicStartOperationTime');
+        }
+
+        if ($req->input('clinicEndOperationTime') != null) {
+            $clinic-> name = $req->input('NameUpdate');
+        }
+
+        if ($req->input('clinicEndOperationTime') != null) {
+            $clinic-> end_time = $req->input('clinicEndOperationTime');
+        }
+
+        if ($req->input('status') != null) {
+            $clinic->is_deleted = $req->input('status');
+        }
+
         //$clinic->name = strip_tags($req->input('clinicName'));
         
         $clinic->save();
 
-        return redirect()->route('admin.clinics')->with('success', 'Update clinic successfully');
+        return redirect()->back()->with('success', 'Update clinic successfully');
     }
 
     public function store(Request $req)

@@ -32,14 +32,14 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="clinicStartOperationTime">Operation Time</label>
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="clinicStartOperationTime">Start Operation Time</label>
                     <input class="form-control" type="time" style="height: 38px;" value="{{ old('clinicStartOperationTime') }}" id="clinicStartOperationTime" name="clinicStartOperationTime">
                     @error('clinicStartOperationTime')
                        {{$message}}
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="clinicEndOperationTime">Operation Time</label>
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="clinicEndOperationTime">End Operation Time</label>
                     <input class="form-control" type="time" style="height: 38px;" value="{{ old('clinicEndOperationTime') }}" id="clinicEndOperationTime" name="clinicEndOperationTime">
                     @error('clinicEndOperationTime')
                        {{$message}}

@@ -17,6 +17,7 @@
                         <th>Clinic Telephone No.</th>
                         <th>Clinic Start Operation Time</th>
                         <th>Clinic End Operation Time</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -29,6 +30,13 @@
                                 <td>{{$clinic['telephone_number']}}</td>
                                 <td>{{$clinic['start_time']}}</td>
                                 <td>{{$clinic['end_time']}}</td>
+                                <td>
+                                    @if ($clinic['is_deleted'] == 0)
+                                        Show
+                                    @else
+                                        Hide
+                                    @endif
+                                </td>
                                 <td>
                                     <button style="all: unset; cursor: pointer;" data-toggle="modal" data-target="#clinicModal{{$clinic['id']}}">    
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -57,8 +65,24 @@
                                                             <input type="text" class="form-control" id="AddressUpdate" name="AddressUpdate" placeholder="{{$clinic['address']}}">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="TeleUpdate">Staff Telephone No.</label>
-                                                            <input type="password" class="form-control" id="TeleUpdate" name="TeleUpdate" placeholder="{{$clinic['telephone_number']}}">
+                                                            <label for="TeleUpdate">clinic Telephone No.</label>
+                                                            <input type="text" class="form-control" id="TeleUpdate" name="TeleUpdate" placeholder="{{$clinic['telephone_number']}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="TeleUpdate">Start Operate Time</label>
+                                                            <input type="time" class="form-control" id="clinicStartOperationTime" name="clinicStartOperationTime" placeholder="{{$clinic['telephone_number']}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="TeleUpdate">End Operate Time</label>
+                                                            <input type="time" class="form-control" id="clinicEndOperationTime" name="clinicEndOperationTime" placeholder="{{$clinic['telephone_number']}}">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="status">Status</label>
+                                                            <select class="form-control" name="status" id="status">
+                                                                <option value="0">Show</option>
+                                                                <option value="1">Hide</option>
+                                                            </select>
                                                         </div>
                                                         {{-- <div class="form-group">
                                                             <label for="exampleInputPassword1">Password</label>
@@ -78,10 +102,10 @@
                                                                 
                                                             </select>
                                                         </div> --}}
-                                                        <div class="form-check">
+                                                        {{-- <div class="form-check">
                                                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                        </div>
+                                                        </div> --}}
                 
                                                         <input type="text" name="clinic_id" id="clinic_id" value="{{$clinic['id']}}" required readonly>
                                                     </div>

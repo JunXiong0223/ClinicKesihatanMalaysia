@@ -13,23 +13,12 @@
                 @csrf
                 
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="ID">ID</label>
-                    <input class="form-control" type="text" style="height: 38px;" id="ID" name="ID">
-                    @error('clinicName')
-                       {{$message}}
-                    @enderror
-                </div>
-                <div class="form-group">
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="password">Password</label>
                     <input class="form-control" type="password" style="height: 38px;" id="password" name="password">
                 </div>
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="re-password">Password</label>
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="re-password">Re-Password</label>
                     <input class="form-control" type="password" style="height: 38px;" id="re-password" name="re-password">
-                </div>
-                <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;">Label</label>
-                    <input class="form-control" type="text" style="height: 38px;">
                 </div>
                 <div class="form-group d-flex d-xl-flex justify-content-sm-center align-items-sm-center justify-content-xl-center">
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">

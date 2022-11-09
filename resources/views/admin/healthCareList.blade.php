@@ -78,10 +78,10 @@
                                                     <div class="form-group">
                                                         <label for="status">Status</label>
                                                         <select class="form-control" name="status" id="status">
-                                                          <option value="0">Show</option>
-                                                          <option value="1">Hide</option>
+                                                            <option value="0">Show</option>
+                                                            <option value="1">Hide</option>
                                                         </select>
-                                                      </div>
+                                                    </div>
             
                                                     <input type="text" name="service_id" id="service_id" value="{{$service['id']}}" required readonly>
                                                 </div>

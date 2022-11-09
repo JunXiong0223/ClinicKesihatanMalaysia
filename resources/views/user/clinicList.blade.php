@@ -19,6 +19,8 @@
                 $corousel=1;
             @endphp
             @foreach ($clinics as $clinic)
+                @if ($clinic['is_deleted'] == 0)
+                    
                 <div class="row text-center d-xl-flex justify-content-xl-center align-items-xl-center" style="margin-bottom: 30px;">
                     <div class="col" style="border-style: none;">
                         <div class="container" style="box-shadow: 0px 0px 6px 1px var(--bs-teal);padding-bottom: 5px;padding-top: 5px;">
@@ -119,6 +121,7 @@
                 @php
                     $corousel++;
                 @endphp
+                @endif
             @endforeach
         @else
             <h1>No Clinic Found</h1>
