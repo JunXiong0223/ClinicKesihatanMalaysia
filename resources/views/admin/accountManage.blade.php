@@ -10,13 +10,6 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
             <form method="POST" action="{{ route('admin.staffStore') }}">
                 @csrf
-                {{-- <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffImage">Staff Image</label>
-                    <input class="form-control-file" type="file" style="height: 38px;" value="{{ old('staffImage') }}" id="staffImage" name="staffImage">
-                    @error('staffImage')
-                       {{$message}}
-                    @enderror
-                </div> --}}
                 <div class="form-group">
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffEmail">Staff Email</label>
                     <input class="form-control" type="text" style="height: 38px;" value="{{ old('staffEmail') }}" id="staffEmail" name="staffEmail">
@@ -46,7 +39,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffDOB">Telephone No.</label>
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="staffDOB">Date of Birth</label>
                     <input class="form-control" type="date" style="height: 38px;" value="{{ old('staffDOB') }}" id="staffDOB" name="staffDOB">
                     @error('staffDOB')
                        {{$message}}
@@ -86,8 +79,5 @@
                 </div>
             </form>
         </div>
-        <div class="col"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
     </div>
 @endsection

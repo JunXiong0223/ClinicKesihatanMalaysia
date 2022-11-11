@@ -84,28 +84,6 @@
                                                                 <option value="1">Hide</option>
                                                             </select>
                                                         </div>
-                                                        {{-- <div class="form-group">
-                                                            <label for="exampleInputPassword1">Password</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                                        </div> --}}
-                                                        {{-- <div class="form-group">
-                                                            <label for="ClinicUpdate">Change Clinic</label>
-                                                            <select class="form-control" id="ClinicUpdate" name="ClinicUpdate">
-                                                                @foreach ($clinics as $clinic)
-                                                                    @if ($clinic['name'] ==  $staff->clinic_name)
-                                                                        <option value="{{$clinic['id']}}" selected>{{$clinic['name']}}</option>
-                                                                    @else
-                                                                        <option value="{{$clinic['id']}}">{{$clinic['name']}}</option>
-                                                                    @endif
-                                                                    
-                                                                @endforeach
-                                                                
-                                                            </select>
-                                                        </div> --}}
-                                                        {{-- <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                        </div> --}}
                 
                                                         <input type="text" name="clinic_id" id="clinic_id" value="{{$clinic['id']}}" required readonly>
                                                     </div>
@@ -125,8 +103,5 @@
             </table>
             
         </div>
-        <div class="col"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;"></div>
     </div>
 @endsection
