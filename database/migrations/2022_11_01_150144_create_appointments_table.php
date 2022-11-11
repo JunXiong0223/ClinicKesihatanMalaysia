@@ -13,15 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('health_notes', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('clinic_id');
+            $table->foreign('clinic_id')->references('id')->on('clinics')->onDelete('cascade');
+
             $table->unsignedBigInteger('staff_id');
             $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
-            $table->unsignedBigInteger('appointment_id');
-            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
-            $table->longText('note');
+
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('health_services')->onDelete('cascade');
+
+            $table->date('attend_date');
+
+            $table->unsignedBigInteger('attend_time');
+            $table->foreign('attend_time')->references('id')->on('time_slots')->onDelete('cascade');
+
+            $table->boolean('attendance');
+            $table->string('status');
             $table->integer('is_deleted');
             $table->timestamps();
         });
@@ -34,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('health_notes');
+        Schema::dropIfExists('appointments');
     }
 };

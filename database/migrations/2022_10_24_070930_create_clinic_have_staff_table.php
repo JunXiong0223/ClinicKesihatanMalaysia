@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('clinic_have_staff', function (Blueprint $table) {
             $table->id();
-            $table->integer('staff_id');
-            $table->integer('clinic_id');
+            $table->unsignedBigInteger('staff_id');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
+            $table->unsignedBigInteger('clinic_id');
+            $table->foreign('clinic_id')->references('id')->on('clinics')->onDelete('cascade');
             $table->integer('is_deleted')->nullable();
             $table->timestamps();
         });
