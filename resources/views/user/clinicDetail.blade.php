@@ -77,11 +77,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">Start Hour</label></div>
-                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['start_time']}}</span></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{date("h:i a", strtotime($clinicDetails['start_time']) )}}</span></div>
                             </div>
                             <div class="row">
                                 <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">End Hour</label></div>
-                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{$clinicDetails['start_time']}}</span></div>
+                                <div class="col d-flex d-xxl-flex align-items-center align-items-xxl-center"><span class="text-break">{{date("h:i a", strtotime($clinicDetails['end_time']) )}}</span></div>
                             </div>
                             <div class="row">
                                 <div class="col-3 d-flex align-items-center"><label class="col-form-label text-break" for="tele">Address</label></div>

@@ -87,7 +87,7 @@
                                                 <label class="col-form-label">Start Hour</label>
                                             </div>
                                             <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
-                                                <span class="text-break d-xxl-flex">{{$clinic['start_time']}}</span>
+                                                <span class="text-break d-xxl-flex">{{date("h:i a", strtotime($clinic['start_time']) )}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -95,7 +95,7 @@
                                                 <label class="col-form-label">End Hour</label>
                                             </div>
                                             <div class="col text-break text-start d-flex align-items-center align-items-xxl-center">
-                                                <span class="text-break d-xxl-flex">{{$clinic['end_time']}}</span>
+                                                <span class="text-break d-xxl-flex">{{date("h:i a", strtotime($clinic['end_time']) )}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
