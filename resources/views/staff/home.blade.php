@@ -7,6 +7,8 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
+         
+        let today = new Date().toISOString().slice(0, 10)    
 
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
@@ -25,7 +27,7 @@
         ]);
 
         var options = {
-            title: 'My Daily Activities'
+            title: today.' Health Service Will Have'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
