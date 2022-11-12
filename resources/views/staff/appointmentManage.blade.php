@@ -76,7 +76,7 @@
                                                             <div class="row"> 
                                                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
                                                                     
-                                                                        @if ($appointment->attendance == 1)
+                                                                        @if ($appointment->attendance == 1 || $appointment->status == 'Cancel')
                                                                             <input type="checkbox"  id="attend" name="attend" value="0" checked disabled>
                                                                         @else
                                                                             <input type="checkbox"  id="attend" name="attend" value="1">
@@ -89,6 +89,7 @@
                                                                         <label for="status"> Status</label>
                                                                         <select name="status"  id="status" required>
                                                                             <option value="NA" selected disabled> Select a status </option>
+                                                                            <option value="Cancel">Cancel</option>
                                                                             <option value="Minor"> Minor </option>
                                                                             <option value="Medium"> Medium </option>
                                                                             <option value="Attention"> Attention </option>
