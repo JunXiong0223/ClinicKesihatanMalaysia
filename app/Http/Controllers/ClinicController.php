@@ -107,7 +107,7 @@ class ClinicController extends Controller
 
                 $clinic_image->clinic_id = $clinic_Id['id'];
 
-                $clinic_image->name = $clinic_image_name;
+                $clinic_image->name = str_replace(' ', '', $req->input('clinicName')).$clinic_image_name;
 
                 $clinic_image->url = "/".$clinic_image_file;
 
