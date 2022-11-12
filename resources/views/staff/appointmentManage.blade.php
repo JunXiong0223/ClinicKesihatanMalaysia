@@ -125,19 +125,19 @@
                 @foreach (session()->get('infos') as $info)
                     <div class="row" style="box-shadow: 0px 0px 4px; border-radius: 5px; padding: 5px;">
                         <div class="col-4">
-                            <label for="">Name: </label>{{$info->name}} <br>
+                            <label for="">Name: </label> <p>{{$info->name}}</p> <br>
                         </div>
                         <div class="col-4">
-                            <label for="">Telephone: </label>{{$info->telephone_number}} <br>
+                            <label for="">Telephone: </label> <p>{{$info->telephone_number}}</p> <br>
                         </div>
                         <div class="col-4">
-                            <label for="">Email: </label>{{$info->email}} <br>
+                            <label for="">Email: </label> <p>{{$info->email}}</p> <br>
                         </div>
                         <div class="col-6">
-                            <label for="">Address: </label>{{$info->address}} <br>
+                            <label for="">Address: </label> <p>{{$info->address}}</p> <br>
                         </div>
                         <div class="col-6">
-                            <label for="">Date of Birth</label>{{$info->DOB}} <br>
+                            <label for="">Date of Birth: </label> <p>{{$info->DOB}}</p> <br>
                         </div>
                     </div>
                     <br>
