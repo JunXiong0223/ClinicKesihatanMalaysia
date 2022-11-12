@@ -25,7 +25,7 @@
                     <div class="col" style="border-style: none;">
                         <div class="container" style="box-shadow: 0px 0px 6px 1px var(--bs-teal);padding-bottom: 5px;padding-top: 5px;">
                             <div class="row">
-                                <div class="col-md-12"><a href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}" style="color: var(--bs-gray-900);font-size: 40px;">{{$clinic['name']}}</a></div>
+                                <div class="col-md-12"><a href="{{ route('clinics.show', [ 'clinic' => $clinic['id'] ]) }}" style="color: var(--bs-gray-900);font-size: 40px; text-decoration: none;">{{$clinic['name']}}</a></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 d-md-flex d-lg-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xxl-center align-items-xxl-center">
