@@ -52,7 +52,7 @@
                                 <td>{{$appointment->status}}</td>
                                 <td>
                                     <a href="{{ route('staff.healthNote', ['id' => $appointment->id]) }}">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                        <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
                                     </a>
                                 </td>
                                 <td>
