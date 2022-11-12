@@ -27,13 +27,21 @@ class StaffAuthController extends Controller
                         -> where('appointments.attend_date', '=' ,date('Y-m-d'))
                         -> where('appointments.status', '=', 'Cancel')
                         -> count(); 
-                    
+        
+        $pies = DB::table('appointments')
+                        -> join('health_services', 'appointments.service_id', '=', 'health_services.id') 
+                        -> select('health_services.ServiceName', DB::raw('count(*) as val'))
+                        -> where('appointments.staff_id', '=' ,Auth::guard('staff')->user()->id)
+                        -> whereRaw('MONTH(appointments.attend_date) =?' ,date('Y-m-d'))
+                        -> groupBy('health_services.id')
+                        -> get();
         //dd( $cancel);
 
         return view('staff.home',[
             'appointments' => $appointments,
             'attendance' =>$attendance,
-            'cancel' => $cancel
+            'cancel' => $cancel,
+            'pies' => $pies
         ]);
     }
 
