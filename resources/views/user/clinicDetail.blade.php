@@ -35,12 +35,12 @@
                             @endphp
                             @foreach ($images as $image)
                                 @if ($count == true)
-                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}"></div>
+                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}" height="400"></div>
                                     @php
                                         $count = false;
                                     @endphp
                                 @else
-                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}"></div>
+                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($image['url']) }}" alt="{{ $image['name'] }}" height="400"></div>
                                 @endif
                             @endforeach
                         @endif
@@ -104,10 +104,10 @@
                         </select>
 
                         <div class="d-inline-flex" style="margin-bottom: 10px;">
-                            <div class="col-6 text-break d-xl-flex d-xxl-flex flex-fill justify-content-xl-center justify-content-xxl-center">
+                            <div class="col-6 text-break d-flex d-xl-flex d-xxl-flex flex-fill justify-content-center align-items-center justify-content-xl-center justify-content-xxl-center">
                                 <input class="flex-fill" type="date" id="date">
                             </div>
-                            <div class="col-6 text-break d-xl-flex d-xxl-flex flex-fill justify-content-xl-center justify-content-xxl-center">
+                            <div class="col-6 text-break d-flex d-xl-flex d-xxl-flex flex-fill justify-content-center align-items-center justify-content-xl-center justify-content-xxl-center">
                                 <select class="d-xl-flex flex-fill align-items-xl-center" id="time">
                                     
                                     <option value="none" selected disabled hidden>Time Slot</option>

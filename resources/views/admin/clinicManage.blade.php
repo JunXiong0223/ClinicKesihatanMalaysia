@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="clinicImage">Clinic Image</label>
-                    <input class="form-control-file" type="file" style="height: 38px;" value="{{ old('clinicImage') }}" id="clinicImage" name="clinicImage[]" multiple>
+                    <input class="form-control-file" type="file" style="height: 38px;" value="{{ old('clinicImage') }}" id="clinicImage" name="clinicImage[]" multiple  accept="image/jpeg">
                     @error('clinicImage')
                        {{$message}}
                     @enderror

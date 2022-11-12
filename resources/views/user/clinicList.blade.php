@@ -51,9 +51,9 @@
                                             
                                             @for ($i = 0; $i < count($counts); $i++)
                                                 @if ($i == 0)
-                                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$counts[$i]]->url) }}" alt="{{ $images[$counts[$i]]->name }}"></div>
+                                                    <div class="carousel-item active"><img class="w-100 d-block" src="{{ url($images[$counts[$i]]->url) }}" alt="{{ $images[$counts[$i]]->name }}" height="400"></div>
                                                 @else
-                                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$counts[$i]]->url) }}" alt="{{ $images[$counts[$i]]->name }}"></div>
+                                                    <div class="carousel-item"><img class="w-100 d-block" src="{{ url($images[$counts[$i]]->url) }}" alt="{{ $images[$counts[$i]]->name }}" height="400"></div>
                                                 @endif
                                             @endfor
                                             
