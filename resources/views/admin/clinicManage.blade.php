@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group d-flex d-xl-flex justify-content-sm-center align-items-sm-center justify-content-xl-center">
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
-                        <button class="btn btn-danger flex-fill" type="button">Reset</button>
+                        <a class="btn btn-danger flex-fill" href="{{ route('admin.clinicManage') }}">Reset</a>
                     </div>
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
                         <button class="btn btn-success d-flex flex-fill justify-content-center justify-content-xl-center" type="submit">Create</button>
