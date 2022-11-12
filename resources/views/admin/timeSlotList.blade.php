@@ -6,6 +6,7 @@
             <h1 class="d-xl-flex justify-content-xl-center align-items-xl-center" style="font-size: 59px;">Clinic List</h1>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0" style="margin-top: 5px;margin-bottom: 5px;">
             <form method="post" action="{{ route('admin.timeSlotCreate') }}" enctype="multipart/form-data">
