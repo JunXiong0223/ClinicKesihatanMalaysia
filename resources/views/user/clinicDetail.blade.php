@@ -139,8 +139,33 @@
                         <h4 class="modal-title">Modal Title</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p id="modal_body">The content of your modal.</p>
+                        <p id="modal_body">You have selected </p>
+                        <div class="form-group row">
+                            <label for="staticClinic" class="col-sm-4 col-form-label" >Clinic:</label>
+                            <div class="col-sm-8">
+                              <input type="text" readonly class="form-control-plaintext" id="staticClinic" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticService" class="col-sm-4 col-form-label" >Service:</label>
+                            <div class="col-sm-8">
+                              <input type="text" readonly class="form-control-plaintext" id="staticService" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-4 col-form-label">Date:</label>
+                            <div class="col-sm-8">
+                              <input type="text" readonly class="form-control-plaintext" id="staticDate" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-4 col-form-label">Time:</label>
+                            <div class="col-sm-8">
+                              <input type="text" readonly class="form-control-plaintext" id="staticTime" value="">
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="modal-footer">
                         <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
                        
@@ -177,6 +202,7 @@
 
         $("#appointment").click(function () {
 
+            let today = new Date().toISOString().slice(0, 10)
             var clinic = $("#clinicName").text();
             var service = $("#service").find(":selected").val();
             var time = $("#time").find(":selected").val();
@@ -198,13 +224,19 @@
                 alert("Please Select a Date");
                 return;
             }
+            else if (date != "" && date < today) {
+                alert("Please Select Correct Date");
+                return;
+            }
             else
             {
-                str = "You Have Selected " 
-                + clinic 
-                + " and service: " + service;
-                $("#modal_body").html(str);
-                
+                // //Modal content
+                $("#staticClinic").val(clinic);
+                $("#staticService").val($("#service").find(":selected").text());
+                $("#staticDate").val($("#date").val());
+                $("#staticTime").val($("#time").find(":selected").text());
+
+                //send the backend data
                 $("#service_id").val(service);
                 $("#appointment_date").val(date);
                 $("#appointment_time").val(time);
