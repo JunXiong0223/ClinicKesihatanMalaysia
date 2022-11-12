@@ -14,9 +14,9 @@
                 <tr>
                     <th>Staff Name</th>
                     <th>Staff Email</th>
-                    <th>Staff Address</th>
-                    <th>Staff Operation Time</th>
+                    <th>Staff date of Birth</th>
                     <th>Staff Telephone No.</th>
+                    <th>Staff Address</th>
                     <th>Staff Clinic</th>
                     <th>Action</th>
                 </tr>
@@ -32,9 +32,9 @@
                 <tr>
                     <td>{{ $staff->name }}</td>
                     <td>{{ $staff->email }}</td>
-                    <td>Staff Address</td>
-                    <td>Staff Operation Time</td>
-                    <td>Staff Telephone No.</td>
+                    <td>{{ $staff->DOB }}</td>
+                    <td>{{ $staff->telephone_number  }}</td>
+                    <td>{{ $staff->address}}</td>
                     <td>{{ $staff->clinic_name }}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staffModal{{$staff->id}}">Update</button>
