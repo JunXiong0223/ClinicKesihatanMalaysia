@@ -113,7 +113,7 @@
                                     <option value="none" selected disabled hidden>Time Slot</option>
                                     @foreach ($timeslots as $timeslot)
                                         @if ($timeslot['is_deleted'] == 0)
-                                            <option value="{{ $timeslot['id'] }}">{{ $timeslot['ServiceTime'] }}</option>
+                                            <option value="{{ $timeslot['id'] }}">{{ date("h:i a", strtotime($timeslot['ServiceTime']) ) }}</option>
                                         @endif
                                         
                                     @endforeach
