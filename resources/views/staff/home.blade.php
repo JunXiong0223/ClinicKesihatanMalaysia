@@ -27,7 +27,7 @@
         ]);
 
         var options = {
-            title: today.' Health Service Will Have'
+            title: today+' Health Service Will Have'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
