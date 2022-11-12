@@ -87,7 +87,7 @@ class StaffController extends Controller
                         -> where('appointments.staff_id', '=' ,Auth::guard('staff')->user()->id)
                         -> where('appointments.attend_date', '=' ,date('Y-m-d'))
                         -> select('appointments.*', 'users.name as user_name', 'users.id as user_id', 'clinics.name as clinic_name', 'health_services.ServiceName', 'time_slots.ServiceTime')
-                        -> orderByRaw('appointments.attend_date ASC')
+                        -> orderByRaw('appointments.attend_date')
                         -> get();
         
         //dd($appointments);
