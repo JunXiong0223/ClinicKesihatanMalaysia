@@ -122,6 +122,7 @@
                             </div>
                         </div>
 
+                        <br>
                         <input type="hidden" value="{{ $clinicDetails['id'] }}" id="clinicId" readonly>
 
                         <button class="btn btn-success" type="button" id="appointment">Make Appointment</button>
