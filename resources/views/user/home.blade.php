@@ -18,7 +18,7 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Latest Articles</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+                {{-- <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p> --}}
             </div>
             <div class="row articles">
                 <div class="col-sm-6 col-md-4 item"><a href="https://www.thestar.com.my/lifestyle/health/2022/11/22/are-you-losing-sleep-over-the-quality-of-your-sleep" target="_blank"><img class="img-fluid" src="https://apicms.thestar.com.my/uploads/images/2022/11/18/thumbs/medium/1825388.jpg"></a>
