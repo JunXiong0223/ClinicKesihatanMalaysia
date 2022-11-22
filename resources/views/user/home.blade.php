@@ -3,7 +3,7 @@
 @section('content')
     <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
         <div class="carousel-inner">
-            <div class="carousel-item active"><img class="w-100 d-block" src="assetsUser/img/meeting.jpg" alt="Slide Image"></div>
+            <div class="carousel-item active"><a href="https://futurise.com.my/ohs"><img class="w-100 d-block" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fthemalaysianreserve.com%2F2022%2F02%2F24%2Ffuturise-moh-roll-out-ohs-reglab%2F&psig=AOvVaw38QypHEuGX69b22TgyZZ2A&ust=1669216148771000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCPDFsuaIwvsCFQAAAAAdAAAAABAD" alt="Slide Image"></a></div>
             <div class="carousel-item"><img class="w-100 d-block" src="assetsUser/img/star-sky.jpg" alt="Slide Image"></div>
             <div class="carousel-item"><img class="w-100 d-block" src="assetsUser/img/star-sky.jpg" alt="Slide Image"></div>
         </div>
