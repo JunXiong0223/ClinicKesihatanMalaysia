@@ -133,8 +133,7 @@
     </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="make_appointment">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form method="post" action="{{ route('user.appointment') }}" >
-            @csrf
+            
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Modal Title</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -168,17 +167,19 @@
                     </div>
                     
                     <div class="modal-footer">
-                        <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
-                       
-                        <input id="clinic_id" type="hidden" value="{{ $clinicDetails['id'] }}" name="clinic_id" readonly>
-                        <input id="service_id" type="hidden" value="" name="service_id" readonly>
-                        <input id="appointment_date" type="hidden" value="" name="appointment_date" readonly>
-                        <input id="appointment_time" type="hidden" value="" name="appointment_time" readonly>
+                        <form method="post" action="{{ route('user.appointment') }}" >
+                            @csrf
+                            <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                        
+                            <input id="clinic_id" type="hidden" value="{{ $clinicDetails['id'] }}" name="clinic_id" readonly>
+                            <input id="service_id" type="hidden" value="" name="service_id" readonly>
+                            <input id="appointment_date" type="hidden" value="" name="appointment_date" readonly>
+                            <input id="appointment_time" type="hidden" value="" name="appointment_time" readonly>
 
-                        <button class="btn btn-primary" type="submit">Confirm</button>
+                            <button class="btn btn-primary" type="submit">Confirm</button>
+                        </form>
                     </div>
                 </div>
-            </form>
         </div>
     </div>
     
