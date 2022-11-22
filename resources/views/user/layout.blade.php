@@ -32,7 +32,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="{{ route('user.home') }}">Company Name</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="{{ route('user.home') }}">KKM</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('clinic') }}" >Clinics</a></li>
@@ -99,31 +99,33 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-3 item">
-                    <h3>Services</h3>
+                    <h3>Archives</h3>
                     <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/database_stores/store_view/10?mid=30" target="_blank">Circulars</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/database_stores/store_view/11?mid=31" target="_blank">Act</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/195?mid=32" target="_blank">Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 item">
-                    <h3>About</h3>
+                    <h3>Coporate Info</h3>
                     <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Legacy</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/2531?mid=13" target="_blank">MOH History</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/13?mid=17" target="_blank">Top Management</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/66?mid=45" target="_blank">MOH Song</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 item">
                     <h3>Careers</h3>
                     <ul>
-                        <li><a href="#">Job openings</a></li>
-                        <li><a href="#">Employee success</a></li>
-                        <li><a href="#">Benefits</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/2797?mid=1390" target="_blank">Urusan Pemangkuan dan Kenaikkan Pangkat</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/61?mid=83" target="_blank">Medical officers</a></li>
+                        <li><a href="https://www.moh.gov.my/index.php/pages/view/126?mid=28" target="_blank">Career Path Advancement</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                    <p class="copyright">Company Name © 2022</p>
+                <div class="col-lg-3 item social">
+                    <a href="https://www.facebook.com/kementeriankesihatanmalaysia" target="_blank"><i class="icon ion-social-facebook"></i></a>
+                    <a href="https://twitter.com/KKMPutrajaya?ref_src=twsrc%5Etfw" target="_blank"><i class="icon ion-social-twitter"></i></a>
+                    <p class="copyright">KKM © 2022</p>
                 </div>
             </div>
         </div>
