@@ -13,8 +13,8 @@
                 @csrf
                 
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="ID">ID</label>
-                    <input class="form-control" type="text" style="height: 38px;" id="ID" name="ID">
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="ID">Email</label>
+                    <input class="form-control" type="text" style="height: 38px;" id="ID" name="ID" value="{{ Auth::guard('staff')->user()->email }}">
                     @error('clinicName')
                        {{$message}}
                     @enderror
