@@ -14,7 +14,7 @@
                 
                 <div class="form-group">
                     <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="ID">Email</label>
-                    <input class="form-control" type="text" style="height: 38px;" id="ID" name="ID" value="{{ Auth::guard('staff')->user()->email }}">
+                    <input class="form-control" type="text" style="height: 38px;" id="ID" name="ID" value="{{ Auth::guard('staff')->user()->email }}" disabled readonly>
                     @error('clinicName')
                        {{$message}}
                     @enderror
@@ -24,16 +24,12 @@
                     <input class="form-control" type="password" style="height: 38px;" id="password" name="password">
                 </div>
                 <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="re-password">Password</label>
+                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;" for="re-password">Re-Password</label>
                     <input class="form-control" type="password" style="height: 38px;" id="re-password" name="re-password">
-                </div>
-                <div class="form-group">
-                    <label class="justify-content-xl-start align-items-xl-center" style="font-size: 20px;">Label</label>
-                    <input class="form-control" type="text" style="height: 38px;">
                 </div>
                 <div class="form-group d-flex d-xl-flex justify-content-sm-center align-items-sm-center justify-content-xl-center">
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
-                        <button class="btn btn-danger flex-fill" type="button">Reset</button>
+                        <a class="btn btn-danger flex-fill" type="button" href="{{ route('staff.resetpassword') }}">Reset</a>
                     </div>
                     <div class="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
                         <button class="btn btn-success d-flex flex-fill justify-content-center justify-content-xl-center" type="submit">Create</button>
