@@ -84,7 +84,7 @@
                                                             </select>
                                                         </div>
                 
-                                                        <input type="text" name="clinic_id" id="clinic_id" value="{{$clinic['id']}}" required readonly>
+                                                        <input type="hidden" name="clinic_id" id="clinic_id" value="{{$clinic['id']}}" required readonly>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

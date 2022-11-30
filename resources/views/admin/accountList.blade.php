@@ -81,10 +81,6 @@
                                                     
                                                 </select>
                                               </div>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                            </div>
     
                                             <input type="hidden" name="staff_id" id="staff_id" value="{{$staff->id}}" required readonly>
                                         </div>
