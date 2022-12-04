@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{$appointment->user_name}}</td>
                                 <td>{{$appointment->clinic_name}}</td>
-                                <td>{{$appointment->staff_id}}</td>
+                                <td>{{$appointment->staff_name}}</td>
                                 <td>{{$appointment->ServiceName}}</td>
                                 <td>{{$appointment->attend_date}}</td>
                                 <td>{{$appointment->ServiceTime}}</td>
