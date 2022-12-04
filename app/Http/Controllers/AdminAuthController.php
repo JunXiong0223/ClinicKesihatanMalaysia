@@ -37,15 +37,10 @@ class AdminAuthController extends Controller
                 -> whereRaw('MONTH(appointments.attend_date) =?' ,date('m') - 1)
                 -> groupBy('health_services.id')
                 -> get();
-                // $month = DB::table('appointments')
-                // -> join('health_services', 'appointments.service_id', '=', 'health_services.id')
-                // -> whereRaw('MONTH(appointments.attend_date) =?' ,date('m') - 1)
-                // -> count(); 
 
         $lines = DB::table('appointments')
                 -> join('health_services', 'appointments.service_id', '=', 'health_services.id') 
                 -> select('health_services.ServiceName', DB::raw('count(*) as val'))
-                //-> whereRaw('MONTH(appointments.attend_date) =?' ,date('m') - 1)
                 -> whereRaw('MONTH(appointments.attend_date) =?' ,date('m'))
                 -> groupBy('health_services.id')
                 -> get();        

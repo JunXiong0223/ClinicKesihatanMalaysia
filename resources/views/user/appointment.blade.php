@@ -91,7 +91,7 @@
                                                                         
                                                                         <option value="none" selected disabled hidden>Time Slot</option>
                                                                         @foreach ($timeslots as $timeslot)
-                                                                            <option value="{{ $timeslot['id'] }}">{{ $timeslot['ServiceTime'] }}</option>
+                                                                            <option value="{{ $timeslot['id'] }}">{{ date("h:i a", strtotime($timeslot['ServiceTime']) ) }}</option>
                                                                         @endforeach
                                                                         
                                                                     </select>
