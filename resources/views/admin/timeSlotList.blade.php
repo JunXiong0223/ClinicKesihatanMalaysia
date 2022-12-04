@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
-            <h1 class="d-xl-flex justify-content-xl-center align-items-xl-center" style="font-size: 59px;">Clinic List</h1>
+            <h1 class="d-xl-flex justify-content-xl-center align-items-xl-center" style="font-size: 59px;">Time Slot List</h1>
         </div>
     </div>
     <br>
