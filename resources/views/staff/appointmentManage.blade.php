@@ -34,7 +34,7 @@
                                     <a href="{{ route('staff.info', ['id' => $appointment->id]) }}"> {{$appointment->user_name}}</a>
                                 </td>
                                 <td>{{$appointment->clinic_name}}</td>
-                                <td>{{$appointment->staff_id}}</td>
+                                <td>{{$appointment->staff_name}}</td>
                                 <td>{{$appointment->ServiceName}}</td>
                                 <td>{{$appointment->attend_date}}</td>
                                 <td>{{$appointment->ServiceTime}}</td>
