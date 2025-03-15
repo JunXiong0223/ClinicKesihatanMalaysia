@@ -7,12 +7,15 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\ViewErrorBag;
 use SessionHandlerInterface;
 use stdClass;
 
 class Store implements Session
 {
+    use Macroable;
+
     /**
      * The session ID.
      *
@@ -240,6 +243,17 @@ class Store implements Session
     public function only(array $keys)
     {
         return Arr::only($this->attributes, $keys);
+    }
+
+    /**
+     * Get all the session data except for a specified array of items.
+     *
+     * @param  array  $keys
+     * @return array
+     */
+    public function except(array $keys)
+    {
+        return Arr::except($this->attributes, $keys);
     }
 
     /**
@@ -629,7 +643,7 @@ class Store implements Session
     /**
      * Set the session ID.
      *
-     * @param  string  $id
+     * @param  string|null  $id
      * @return void
      */
     public function setId($id)
@@ -640,7 +654,7 @@ class Store implements Session
     /**
      * Determine if this is a valid session ID.
      *
-     * @param  string  $id
+     * @param  string|null  $id
      * @return bool
      */
     public function isValidId($id)
@@ -730,6 +744,17 @@ class Store implements Session
     public function getHandler()
     {
         return $this->handler;
+    }
+
+    /**
+     * Set the underlying session handler implementation.
+     *
+     * @param  \SessionHandlerInterface  $handler
+     * @return \SessionHandlerInterface
+     */
+    public function setHandler(SessionHandlerInterface $handler)
+    {
+        return $this->handler = $handler;
     }
 
     /**

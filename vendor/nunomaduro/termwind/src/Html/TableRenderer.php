@@ -122,7 +122,7 @@ final class TableRenderer
             if ($child->isName('tr')) {
                 $rows = iterator_to_array($this->parseRow($child));
                 if (count($rows) > 0) {
-                    $this->table->addRow(new TableSeparator());
+                    $this->table->addRow(new TableSeparator);
                     $this->table->addRows($rows);
                 }
             }
@@ -179,8 +179,8 @@ final class TableRenderer
                 }
 
                 $row[] = new TableCell(
-                // I need only spaces after applying margin, padding and width except tags.
-                // There is no place for tags, they broke cell formatting.
+                    // I need only spaces after applying margin, padding and width except tags.
+                    // There is no place for tags, they broke cell formatting.
                     (string) Termwind::span($text, $class),
                     [
                         // Gets rowspan and colspan from tr and td tag attributes
@@ -203,7 +203,7 @@ final class TableRenderer
 
         $border = (int) $node->getAttribute('border');
         for ($i = $border; $i--; $i > 0) {
-            yield new TableSeparator();
+            yield new TableSeparator;
         }
     }
 

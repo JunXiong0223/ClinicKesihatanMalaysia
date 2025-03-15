@@ -5,6 +5,8 @@ namespace Illuminate\Foundation\Testing\Concerns;
 use Closure;
 use Illuminate\Foundation\Mix;
 use Illuminate\Foundation\Vite;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\HtmlString;
 use Mockery;
 
 trait InteractsWithContainer
@@ -56,7 +58,7 @@ trait InteractsWithContainer
      * @param  \Closure|null  $mock
      * @return \Mockery\MockInterface
      */
-    protected function mock($abstract, Closure $mock = null)
+    protected function mock($abstract, ?Closure $mock = null)
     {
         return $this->instance($abstract, Mockery::mock(...array_filter(func_get_args())));
     }
@@ -68,7 +70,7 @@ trait InteractsWithContainer
      * @param  \Closure|null  $mock
      * @return \Mockery\MockInterface
      */
-    protected function partialMock($abstract, Closure $mock = null)
+    protected function partialMock($abstract, ?Closure $mock = null)
     {
         return $this->instance($abstract, Mockery::mock(...array_filter(func_get_args()))->makePartial());
     }
@@ -80,7 +82,7 @@ trait InteractsWithContainer
      * @param  \Closure|null  $mock
      * @return \Mockery\MockInterface
      */
-    protected function spy($abstract, Closure $mock = null)
+    protected function spy($abstract, ?Closure $mock = null)
     {
         return $this->instance($abstract, Mockery::spy(...array_filter(func_get_args())));
     }
@@ -109,14 +111,76 @@ trait InteractsWithContainer
             $this->originalVite = app(Vite::class);
         }
 
-        $this->swap(Vite::class, new class
+        Facade::clearResolvedInstance(Vite::class);
+
+        $this->swap(Vite::class, new class extends Vite
         {
-            public function __invoke()
+            public function __invoke($entrypoints, $buildDirectory = null)
+            {
+                return new HtmlString('');
+            }
+
+            public function __call($method, $parameters)
             {
                 return '';
             }
 
-            public function __call($name, $arguments)
+            public function __toString()
+            {
+                return '';
+            }
+
+            public function useIntegrityKey($key)
+            {
+                return $this;
+            }
+
+            public function useBuildDirectory($path)
+            {
+                return $this;
+            }
+
+            public function useHotFile($path)
+            {
+                return $this;
+            }
+
+            public function withEntryPoints($entryPoints)
+            {
+                return $this;
+            }
+
+            public function useScriptTagAttributes($attributes)
+            {
+                return $this;
+            }
+
+            public function useStyleTagAttributes($attributes)
+            {
+                return $this;
+            }
+
+            public function usePreloadTagAttributes($attributes)
+            {
+                return $this;
+            }
+
+            public function preloadedAssets()
+            {
+                return [];
+            }
+
+            public function reactRefresh()
+            {
+                return '';
+            }
+
+            public function content($asset, $buildDirectory = null)
+            {
+                return '';
+            }
+
+            public function asset($asset, $buildDirectory = null)
             {
                 return '';
             }
@@ -151,7 +215,7 @@ trait InteractsWithContainer
         }
 
         $this->swap(Mix::class, function () {
-            return '';
+            return new HtmlString('');
         });
 
         return $this;
